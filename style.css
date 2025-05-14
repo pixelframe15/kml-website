@@ -93,8 +93,7 @@ footer {
 .logo-left {
     display: flex;
     align-items: center;
-    gap: 10px;
-}
+    height: auto;
 
 .brand-text {
     font-size: 1.2rem;
