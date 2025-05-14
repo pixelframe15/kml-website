@@ -90,10 +90,10 @@ footer {
     padding: 0.8rem 2rem;
 }
 
-.logo-left {
-    display: flex;
-    align-items: center;
-    height: auto;
+.logo-left img.logo {
+    max-width: 80px !important;
+    height: auto !important;
+}
 
 .brand-text {
     font-size: 1.2rem;
