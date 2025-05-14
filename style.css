@@ -90,9 +90,10 @@ footer {
     padding: 0.8rem 2rem;
 }
 
-.logo-left img.logo {
-    max-width: 80px;
-    height: auto;
+.logo-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .brand-text {
@@ -100,6 +101,9 @@ footer {
     font-weight: bold;
     color: #be1e2d;
     white-space: nowrap;
+    line-height: 1; /* optional untuk keselarasan */
+    display: flex;
+    align-items: center; /* vertikal rata tengah */
 }
 
 
