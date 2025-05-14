@@ -50,36 +50,57 @@ footer {
     color: white;
     font-size: 0.9rem;
 }
-.wa-floating {
+.wa-wrapper {
     position: fixed;
     bottom: 20px;
     right: 20px;
+    z-index: 999;
+    text-align: right;
+}
+
+.wa-toggle {
+    background: #25d366;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 30px;
     display: flex;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.wa-toggle img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.wa-list {
+    display: none;
     flex-direction: column;
     gap: 10px;
-    z-index: 999;
+    margin-top: 10px;
+}
+
+.wa-list.show {
+    display: flex;
 }
 
 .wa-btn {
-    display: flex;
-    align-items: center;
     background: #25d366;
     color: white;
-    padding: 10px;
+    padding: 8px 12px;
     border-radius: 30px;
     text-decoration: none;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    transition: transform 0.2s ease;
-}
-
-.wa-btn:hover {
-    transform: scale(1.05);
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
 }
 
 .wa-btn img {
-    width: 30px;
-    height: 30px;
+    width: 28px;
+    height: 28px;
     border-radius: 50%;
-    margin-right: 10px;
+    margin-right: 8px;
     object-fit: cover;
 }

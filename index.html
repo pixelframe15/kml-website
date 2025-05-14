@@ -7,17 +7,31 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<!-- Tombol WhatsApp -->
-<div class="wa-floating">
-  <a href="https://wa.me/6287787651023" class="wa-btn" target="_blank">
-    <img src="assets/ajat.jpg" alt="Ajat" />
-    <span>Ajat</span>
-  </a>
-  <a href="https://wa.me/6285719123123" class="wa-btn" target="_blank">
-    <img src="assets/didik.jpg" alt="Didik" />
-    <span>Didik</span>
-  </a>
+<!-- Floating WhatsApp Toggle -->
+<div class="wa-wrapper">
+  <div class="wa-toggle" onclick="toggleWaList()">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WA">
+    <span>Layanan Informasi</span>
+  </div>
+  <div class="wa-list" id="waList">
+    <a href="https://wa.me/6287787651023" class="wa-btn" target="_blank">
+      <img src="assets/ajat.jpg" alt="Ajat">
+      <span>Ajat</span>
+    </a>
+    <a href="https://wa.me/6285719123123" class="wa-btn" target="_blank">
+      <img src="assets/didik.jpg" alt="Didik">
+      <span>Didik</span>
+    </a>
+  </div>
 </div>
+
+<script>
+  function toggleWaList() {
+    const list = document.getElementById('waList');
+    list.classList.toggle('show');
+  }
+</script>
+
 
 <body>
     <header>
