@@ -103,9 +103,9 @@ footer {
 
 
 .brand-text {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     font-weight: bold;
-    color: #be1e2d;
+    color: #f13223;
     white-space: nowrap;
     line-height: 1; /* optional untuk keselarasan */
     display: flex;
