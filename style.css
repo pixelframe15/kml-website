@@ -116,7 +116,7 @@ footer {
 .brand-text {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #f13223;
+  color: #000000;
   white-space: nowrap;
   line-height: 1;
   display: flex;
@@ -201,5 +201,69 @@ footer {
 
   .menu-toggle {
     display: block;
+  }
+}
+/* === HERO SECTION === */
+.hero {
+  background-image: url('assets/hero-bg.jpg'); /* ganti dengan gambar kamu */
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-align: center;
+  padding: 100px 20px;
+  position: relative;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5); /* overlay gelap */
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  margin: auto;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.cta-button {
+  background: #f13223;
+  color: white;
+  padding: 12px 25px;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 30px;
+  transition: background 0.3s;
+}
+
+.cta-button:hover {
+  background: #c9221b;
+}
+
+/* Responsif Hero */
+@media (max-width: 768px) {
+  .hero {
+    padding: 60px 20px;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
   }
 }
