@@ -287,15 +287,16 @@ footer {
 .icon-box {
   background: #fff;
   border-radius: 8px;
-  padding: 1rem;
+  padding: 1.5rem;
   width: 250px;
   text-align: center;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-.icon-box img {
-  width: 50px;
-  margin-bottom: 10px;
+.icon-box i {
+  font-size: 2.5rem;
+  color: #f13223;
+  margin-bottom: 1rem;
 }
 
 .icon-box h4 {
@@ -307,6 +308,7 @@ footer {
   font-size: 0.95rem;
   color: #555;
 }
+
 
 /* === LAYANAN KAMI === */
 .layanan-wrapper {
