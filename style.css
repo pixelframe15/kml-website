@@ -101,6 +101,18 @@ footer {
   gap: 10px;
 }
 
+.desktop-logo {
+  display: block;
+  width: 80px;
+  height: auto;
+}
+
+.mobile-logo {
+  display: none;
+  width: 60px;
+  height: auto;
+}
+
 .brand-text {
   font-size: 1.5rem;
   font-weight: bold;
@@ -109,14 +121,6 @@ footer {
   line-height: 1;
   display: flex;
   align-items: center;
-}
-
-.desktop-logo {
-  display: block;
-}
-
-.mobile-logo {
-  display: none;
 }
 
 /* === NAVIGATION === */
@@ -157,8 +161,9 @@ footer {
 /* === MOBILE RESPONSIVE === */
 @media (max-width: 768px) {
   .main-header .container {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
 
   .logo-left {
@@ -172,7 +177,6 @@ footer {
 
   .mobile-logo {
     display: block;
-    width: 60px;
   }
 
   .brand-text {
