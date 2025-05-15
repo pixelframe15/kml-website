@@ -168,4 +168,23 @@ footer {
     .menu-toggle {
         display: block;
     }
+      .logo-left {
+    flex-direction: column;     /* ubah dari horizontal ke vertical */
+    align-items: flex-start;    /* supaya rata kiri */
+  }
+
+  .brand-text {
+    font-size: 1rem;
+    margin-top: 5px;
+  }
+
+  .logo {
+    width: 60px;                /* logo diperkecil untuk mobile */
+  }
+
+  .main-header .container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
+
