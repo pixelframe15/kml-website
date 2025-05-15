@@ -267,3 +267,43 @@ footer {
     font-size: 1rem;
   }
 }
+
+/* === TENTANG KAMI === */
+.tentang-content {
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #333;
+}
+
+.tentang-icons {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.icon-box {
+  background: #fff;
+  border-radius: 8px;
+  padding: 1rem;
+  width: 250px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.icon-box img {
+  width: 50px;
+  margin-bottom: 10px;
+}
+
+.icon-box h4 {
+  color: #f13223;
+  margin-bottom: 0.5rem;
+}
+
+.icon-box p {
+  font-size: 0.95rem;
+  color: #555;
+}
