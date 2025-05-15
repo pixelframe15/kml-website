@@ -307,3 +307,50 @@ footer {
   font-size: 0.95rem;
   color: #555;
 }
+
+/* === LAYANAN KAMI === */
+.layanan-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.layanan-box {
+  background: #fff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  width: 280px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.layanan-box:hover {
+  transform: translateY(-5px);
+}
+
+.layanan-box i {
+  font-size: 2.5rem;
+  color: #f13223;
+  margin-bottom: 1rem;
+}
+
+.layanan-box h3 {
+  color: #f13223;
+  margin-bottom: 0.5rem;
+}
+
+.layanan-box p {
+  font-size: 0.95rem;
+  color: #444;
+  line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .layanan-box {
+    width: 100%;
+  }
+}
