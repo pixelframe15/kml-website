@@ -1,95 +1,100 @@
+/* === RESET DASAR === */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #f4f4f4;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f4f4f4;
 }
 
 section {
-    padding: 2rem;
-    background: white;
-    margin: 1rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  padding: 2rem;
+  background: white;
+  margin: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 footer {
-    text-align: center;
-    padding: 1rem;
-    background: #222;
-    color: white;
-    font-size: 0.9rem;
+  text-align: center;
+  padding: 1rem;
+  background: #222;
+  color: white;
+  font-size: 0.9rem;
 }
+
+/* === WHATSAPP FLOATING === */
 .wa-wrapper {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 999;
-    text-align: right;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+  text-align: right;
 }
 
 .wa-toggle {
-    background: #25d366;
-    color: white;
-    padding: 10px 15px;
-    border-radius: 30px;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  background: #25d366;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
 
 .wa-toggle img {
-    width: 20px;
-    height: 20px;
-    margin-right: 10px;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
 }
 
 .wa-list {
-    display: none;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 10px;
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
 }
 
 .wa-list.show {
-    display: flex;
+  display: flex;
 }
 
 .wa-btn {
-    background: #25d366;
-    color: white;
-    padding: 8px 12px;
-    border-radius: 30px;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+  background: #25d366;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 30px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
 }
 
 .wa-btn img {
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    margin-right: 8px;
-    object-fit: cover;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  margin-right: 8px;
+  object-fit: cover;
 }
+
 /* === HEADER STICKY + RESPONSIVE NAV === */
 .main-header {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    background-color: white;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .main-header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.8rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 2rem;
 }
 
+/* === LOGO AREA === */
 .logo-left {
   display: flex;
   align-items: center;
@@ -101,90 +106,101 @@ footer {
   height: auto;
 }
 
-
 .brand-text {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #f13223;
-    white-space: nowrap;
-    line-height: 1; /* optional untuk keselarasan */
-    display: flex;
-    align-items: center; /* vertikal rata tengah */
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #f13223;
+  white-space: nowrap;
+  line-height: 1;
+  display: flex;
+  align-items: center;
 }
 
+.desktop-logo {
+  display: block;
+}
 
+.mobile-logo {
+  display: none;
+}
+
+/* === NAVIGATION === */
 .nav-menu {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .nav-links {
-    display: flex;
-    gap: 1rem;
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .nav-links li a {
-    color: #333;
-    text-decoration: none;
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-    font-weight: 500;
+  color: #333;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  font-weight: 500;
 }
 
 .nav-links li a:hover {
-    background-color: #be1e2d;
-    color: white;
+  background-color: #f13223;
+  color: white;
 }
 
 .menu-toggle {
-    display: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-    padding-left: 1rem;
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding-left: 1rem;
 }
 
-/* === RESPONSIVE NAV === */
+/* === MOBILE RESPONSIVE === */
 @media (max-width: 768px) {
-    .nav-links {
-        position: absolute;
-        top: 70px;
-        right: 20px;
-        background: white;
-        flex-direction: column;
-        width: 200px;
-        border-radius: 8px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        display: none;
-    }
-
-    .nav-links.show {
-        display: flex;
-    }
-
-    .menu-toggle {
-        display: block;
-    }
-      .logo-left {
-    flex-direction: column;     /* ubah dari horizontal ke vertical */
-    align-items: flex-start;    /* supaya rata kiri */
-  }
-
-  .brand-text {
-    font-size: 1rem;
-    margin-top: 5px;
-  }
-
-  .logo {
-    width: 60px;                /* logo diperkecil untuk mobile */
-  }
-
   .main-header .container {
     flex-direction: column;
     align-items: flex-start;
   }
-}
 
+  .logo-left {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .desktop-logo {
+    display: none;
+  }
+
+  .mobile-logo {
+    display: block;
+    width: 60px;
+  }
+
+  .brand-text {
+    display: none;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background: white;
+    flex-direction: column;
+    width: 200px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    display: none;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
