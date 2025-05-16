@@ -131,6 +131,7 @@ footer {
   display: none;
   width: 180px;
   height: auto;
+  margin-left: 0;
 }
 
 /* === NAVIGATION === */
