@@ -114,6 +114,36 @@ footer {
   padding: 0.8rem 2rem;
 }
 
+/* === LOGO OVAL MELAYANG === */
+.logo-left {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+
+.desktop-logo {
+  width: 80px;
+  height: auto;
+}
+
+.mobile-logo {
+  display: none;
+  width: 60px;
+  height: auto;
+}
+
+.brand-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #f13223;
+  white-space: nowrap;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+}
+
 /* === NAVIGATION === */
 .nav-menu {
   display: flex;
