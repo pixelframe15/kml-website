@@ -3,13 +3,13 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background: #f4f4f4;
+  background: #b6d9f1;
   padding-top: 120px;
 }
 
 section {
   padding: 2rem;
-  background: white;
+  background: #b6d9f1;
   margin: 1rem;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -18,7 +18,7 @@ section {
 footer {
   text-align: center;
   padding: 1rem;
-  background: #222;
+  background: #16486c;
   color: white;
   font-size: 0.9rem;
 }
@@ -160,7 +160,7 @@ footer {
 }
 
 .nav-links li a:hover {
-  background-color: #f13223;
+  background-color: #fc9031;
   color: white;
 }
 
@@ -200,7 +200,7 @@ footer {
     position: absolute;
     top: 80px;
     right: 20px;
-    background: white;
+    background: #b6d9f1;
     flex-direction: column;
     width: 200px;
     border-radius: 8px;
@@ -220,7 +220,7 @@ footer {
 /* === HERO SECTION === */
 .hero {
   padding: 80px 20px;
-  background: #fff;
+  background: #b6d9f1;
 }
 
 .hero-container {
@@ -240,8 +240,8 @@ footer {
 
 .hero-tagline {
   font-size: 0.9rem;
-  color: #f13223;
-  border: 2px solid #f13223;
+  color: #fc9031;
+  border: 2px solid #fc9031;
   padding: 6px 12px;
   border-radius: 20px;
   font-weight: 600;
@@ -330,7 +330,7 @@ footer {
 }
 
 .icon-box {
-  background: #fff;
+  background: #b6d9f1;
   border-radius: 8px;
   padding: 1.5rem;
   width: 250px;
@@ -340,12 +340,12 @@ footer {
 
 .icon-box i {
   font-size: 2.5rem;
-  color: #f13223;
+  color: #fc9031;
   margin-bottom: 1rem;
 }
 
 .icon-box h4 {
-  color: #f13223;
+  color: #fc9031;
   margin-bottom: 0.5rem;
 }
 
@@ -364,7 +364,7 @@ footer {
 }
 
 .layanan-box {
-  background: #fff;
+  background: #b6d9f1;
   border-radius: 8px;
   padding: 1.5rem;
   width: 280px;
@@ -379,12 +379,12 @@ footer {
 
 .layanan-box i {
   font-size: 2.5rem;
-  color: #f13223;
+  color: #fc9031;
   margin-bottom: 1rem;
 }
 
 .layanan-box h3 {
-  color: #f13223;
+  color: #fc9031;
   margin-bottom: 0.5rem;
 }
 
