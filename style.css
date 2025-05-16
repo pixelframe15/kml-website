@@ -103,7 +103,7 @@ footer {
 /* Header berubah saat scroll */
 .scrolled-header {
   background: rgba(255, 255, 255, 0.75); /* blur tetap tapi transparan naik */
-  border-bottom: 4px solid #fc9031;
+  border-bottom: 2px solid #fc9031;
 }
 
 .main-header .container {
