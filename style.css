@@ -106,17 +106,6 @@ footer {
   border-bottom: 4px solid #fc9031;
 }
 
-@keyframes fadeInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 .main-header .container {
   display: flex;
   justify-content: space-between;
@@ -124,7 +113,7 @@ footer {
   padding: 0.8rem 2rem;
 }
 
-/* === LOGO OVAL MELAYANG === */
+/* Logo */
 .logo-left {
   position: relative;
   display: flex;
@@ -132,7 +121,6 @@ footer {
   gap: 12px;
 }
 
-/* Logo */
 .desktop-logo {
   width: 250px;
   height: auto;
@@ -166,6 +154,9 @@ footer {
   border-radius: 8px;
   transition: all 0.3s ease;
   font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .nav-links li a:hover {
