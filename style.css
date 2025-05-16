@@ -182,6 +182,10 @@ footer {
     width: 100%;
     border-bottom: 3px solid #fc9031;
   }
+  
+  .logo-left {
+    flex-direction: row;
+    align-items: center;
 
   .desktop-logo {
     display: none;
