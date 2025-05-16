@@ -226,45 +226,48 @@ footer {
 }
 
 /* === HERO SECTION === */
-.hero-baru {
-  background: linear-gradient(to bottom, #fff, #f8f8f8);
+.hero {
   padding: 80px 20px;
+  background: #fff;
 }
 
 .hero-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
   max-width: 1200px;
   margin: auto;
   gap: 2rem;
+  flex-wrap: wrap;
 }
 
 .hero-text {
   flex: 1;
-  max-width: 600px;
+  animation: fadeInUp 1s ease;
 }
 
-.hero-text .label-atas {
-  display: inline-block;
-  background: #f13223;
-  color: white;
+.hero-tagline {
+  font-size: 0.9rem;
+  color: #f13223;
+  border: 2px solid #f13223;
   padding: 6px 12px;
-  border-radius: 30px;
-  font-size: 0.85rem;
-  margin-bottom: 15px;
-}
-
-.hero-text h1 {
-  font-size: 2.5rem;
-  color: #1e1e1e;
+  border-radius: 20px;
+  font-weight: 600;
+  display: inline-block;
   margin-bottom: 1rem;
 }
 
+.hero-text h1 {
+  font-size: 2rem;
+  color: #222;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
 .hero-text p {
-  font-size: 1.1rem;
-  color: #555;
+  font-size: 1.05rem;
+  color: #444;
+  line-height: 1.6;
 }
 
 .hero-image {
@@ -275,20 +278,29 @@ footer {
 .hero-image img {
   max-width: 100%;
   height: auto;
+  animation: fadeIn 1.5s ease;
 }
 
-/* Responsive */
+/* Animasi Fade */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
 @media (max-width: 768px) {
   .hero-container {
-    flex-direction: column;
+    flex-direction: column-reverse;
     text-align: center;
   }
-
   .hero-text h1 {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
   }
 }
-
 
 /* === ANIMASI FADE IN SAAT SCROLL === */
 [data-animate] {
