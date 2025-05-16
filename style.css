@@ -3,13 +3,13 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background: #e3eaee;
+  background: #f7f8fc;
   padding-top: 120px;
 }
 
 section {
   padding: 2rem;
-  background: #e3eaee;
+  background: #f7f8fc;
   margin: 1rem;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -92,7 +92,7 @@ footer {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-radius: 12px;
-  border-bottom: 4px solid #fc9031; /* garis solid orange bawah */
+  border-bottom: 2px solid #fc9031; /* garis solid orange bawah */
   z-index: 1000;
   transition: all 0.3s ease;
   display: flex;
@@ -200,7 +200,7 @@ footer {
     position: absolute;
     top: 80px;
     right: 20px;
-    background: #e3eaee;
+    background: #f7f8fc;
     flex-direction: column;
     width: 200px;
     border-radius: 8px;
@@ -220,7 +220,7 @@ footer {
 /* === HERO SECTION === */
 .hero {
   padding: 80px 20px;
-  background: #e3eaee;
+  background: #f7f8fc;
 }
 
 .hero-container {
@@ -330,7 +330,7 @@ footer {
 }
 
 .icon-box {
-  background: #e3eaee;
+  background: #f7f8fc;
   border-radius: 8px;
   padding: 1.5rem;
   width: 250px;
@@ -364,7 +364,7 @@ footer {
 }
 
 .layanan-box {
-  background: #e3eaee;
+  background: #f7f8fc;
   border-radius: 8px;
   padding: 1.5rem;
   width: 280px;
