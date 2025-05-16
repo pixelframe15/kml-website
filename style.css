@@ -3,13 +3,13 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background: #b6d9f1;
+  background: #e3eaee;
   padding-top: 120px;
 }
 
 section {
   padding: 2rem;
-  background: #b6d9f1;
+  background: #e3eaee;
   margin: 1rem;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -200,7 +200,7 @@ footer {
     position: absolute;
     top: 80px;
     right: 20px;
-    background: #b6d9f1;
+    background: #e3eaee;
     flex-direction: column;
     width: 200px;
     border-radius: 8px;
@@ -220,7 +220,7 @@ footer {
 /* === HERO SECTION === */
 .hero {
   padding: 80px 20px;
-  background: #b6d9f1;
+  background: #e3eaee;
 }
 
 .hero-container {
@@ -330,7 +330,7 @@ footer {
 }
 
 .icon-box {
-  background: #b6d9f1;
+  background: #e3eaee;
   border-radius: 8px;
   padding: 1.5rem;
   width: 250px;
@@ -364,7 +364,7 @@ footer {
 }
 
 .layanan-box {
-  background: #b6d9f1;
+  background: #e3eaee;
   border-radius: 8px;
   padding: 1.5rem;
   width: 280px;
