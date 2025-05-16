@@ -123,13 +123,13 @@ footer {
 }
 
 .desktop-logo {
-  width: 180px;
+  width: 250px;
   height: auto;
 }
 
 .mobile-logo {
   display: none;
-  width: 120px;
+  width: 180px;
   height: auto;
 }
 
