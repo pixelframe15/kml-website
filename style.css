@@ -4,7 +4,7 @@ body {
   margin: 0;
   padding: 0;
   background: #f7f8fc;
-  padding-top: 120px;
+  padding-top: 110px;
 }
 
 section {
@@ -82,13 +82,13 @@ footer {
 /* === NAVBAR GLASS EFFECT + ORANGE SHADOW === */
 .main-header {
   position: fixed;
-  top: 20px;
+  top: 12px;
   left: 0;
   right: 0;
   margin: auto;
   max-width: 1200px;
-  padding: 0.6rem 1.5rem;
-  background: rgba(255, 255, 255, 0.4); /* lebih transparan */
+  padding: 0.4rem 1.5rem;
+  background: rgba(255, 255, 255, 0.3); /* lebih transparan */
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-radius: 12px;
@@ -103,35 +103,33 @@ footer {
 /* Header berubah saat scroll */
 .scrolled-header {
   background: rgba(255, 255, 255, 0.75); /* blur tetap tapi transparan naik */
-  border-bottom: 2px solid #fc9031;
 }
 
 .main-header .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.8rem 2rem;
+  width: 100%;
 }
 
 /* Logo */
 .logo-left {
-  position: relative;
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 
 .desktop-logo {
   width: 250px;
   height: auto;
-  margin-left: 0;
+  margin-left: 10px;
 }
 
 .mobile-logo {
   display: none;
   width: 180px;
   height: auto;
-  margin-left: 0;
+  margin-left: 8px;
 }
 
 /* === NAVIGATION === */
@@ -149,20 +147,26 @@ footer {
 }
 
 .nav-links li a {
-  color: #333;
+  color: #16486c
   text-decoration: none;
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
   transition: all 0.3s ease;
   font-weight: 500;
-  display: flex;
-  align-items: center;
-  gap: 6px;
 }
 
-.nav-links li a:hover {
-  background-color: #fc9031;
+..nav-links li a:hover {
+  color: #fc9031;
+}
+
+.nav-links li:last-child a {
+  background: #16486c;
   color: white;
+}
+
+.nav-links li:last-child a:hover {
+  background: #fc9031;
+  color: #fff;
 }
 
 .menu-toggle {
@@ -185,8 +189,7 @@ footer {
   }
 
   .logo-left {
-    flex-direction: row;
-    align-items: center;
+  }
 
   .desktop-logo {
     display: none;
@@ -199,8 +202,8 @@ footer {
 
   .nav-links {
     position: absolute;
-    top: 80px;
-    right: 20px;
+    top: 70px;
+    right: 10px;
     background: #f7f8fc;
     flex-direction: column;
     width: 200px;
