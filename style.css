@@ -87,21 +87,23 @@ footer {
   right: 0;
   margin: auto;
   max-width: 1200px;
-  padding: 0.8rem 2rem;
-  background: rgba(255, 255, 255, 0.6); /* transparan awal */
+  padding: 0.6rem 1.5rem;
+  background: rgba(255, 255, 255, 0.4); /* lebih transparan */
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border-radius: 15px;
-  box-shadow: 0 2px 10px rgba(252, 144, 49, 0.3); /* ORANGE SHADOW */
+  border-radius: 12px;
+  border-bottom: 4px solid #fc9031; /* garis solid orange bawah */
   z-index: 1000;
-  transition: all 0.4s ease;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 /* Header berubah saat scroll */
 .scrolled-header {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(16px);
-  box-shadow: 0 6px 20px rgba(252, 144, 49, 0.5);
+  background: rgba(255, 255, 255, 0.75); /* blur tetap tapi transparan naik */
+  border-bottom: 4px solid #fc9031;
 }
 
 @keyframes fadeInDown {
@@ -130,9 +132,11 @@ footer {
   gap: 12px;
 }
 
+/* Logo */
 .desktop-logo {
   width: 250px;
   height: auto;
+  margin-left: 0;
 }
 
 .mobile-logo {
@@ -178,15 +182,14 @@ footer {
 
 /* === MOBILE RESPONSIVE === */
 @media (max-width: 768px) {
-  .main-header .container {
+  .main-header {
     flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .logo-left {
-    flex-direction: row;
-    align-items: center;
+    padding: 0.5rem 1rem;
+    border-radius: 0;
+    top: 0;
+    margin: 0;
+    width: 100%;
+    border-bottom: 3px solid #fc9031;
   }
 
   .desktop-logo {
@@ -196,10 +199,7 @@ footer {
   .mobile-logo {
     display: block;
   }
-
-  .brand-text {
-    display: none;
-  }
+}
 
   .nav-links {
     position: absolute;
