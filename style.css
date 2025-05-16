@@ -4,6 +4,7 @@ body {
   margin: 0;
   padding: 0;
   background: #f4f4f4;
+  padding-top: 120px;
 }
 
 section {
@@ -78,13 +79,32 @@ footer {
   object-fit: cover;
 }
 
-/* === HEADER STICKY + RESPONSIVE NAV === */
+/* === HEADER GLASS + FLOAT === */
 .main-header {
-  position: sticky;
-  top: 0;
+  position: fixed;
+  top: 20px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  max-width: 95%;
   z-index: 1000;
-  background-color: white;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+  animation: fadeInDown 0.6s ease;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .main-header .container {
@@ -94,15 +114,28 @@ footer {
   padding: 0.8rem 2rem;
 }
 
-/* === LOGO AREA === */
+/* === LOGO OVAL MELAYANG === */
 .logo-left {
+  position: relative;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
+}
+
+.logo-left::before {
+  content: '';
+  position: absolute;
+  left: -12px;
+  right: -12px;
+  top: -8px;
+  bottom: -8px;
+  background: white;
+  border-radius: 50px;
+  z-index: -1;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
 }
 
 .desktop-logo {
-  display: block;
   width: 80px;
   height: auto;
 }
@@ -116,7 +149,7 @@ footer {
 .brand-text {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #000000;
+  color: #f13223;
   white-space: nowrap;
   line-height: 1;
   display: flex;
@@ -185,7 +218,7 @@ footer {
 
   .nav-links {
     position: absolute;
-    top: 70px;
+    top: 80px;
     right: 20px;
     background: white;
     flex-direction: column;
@@ -203,9 +236,10 @@ footer {
     display: block;
   }
 }
+
 /* === HERO SECTION === */
 .hero {
-  background-image: url('assets/hero-bg.jpg'); /* ganti dengan gambar kamu */
+  background-image: url('assets/hero-bg.jpg');
   background-size: cover;
   background-position: center;
   color: white;
@@ -218,7 +252,7 @@ footer {
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0,0,0,0.5); /* overlay gelap */
+  background: rgba(0,0,0,0.5);
   z-index: 1;
 }
 
@@ -253,7 +287,6 @@ footer {
   background: #c9221b;
 }
 
-/* Responsif Hero */
 @media (max-width: 768px) {
   .hero {
     padding: 60px 20px;
@@ -265,6 +298,25 @@ footer {
 
   .hero p {
     font-size: 1rem;
+  }
+}
+
+/* === ANIMASI FADE IN SAAT SCROLL === */
+[data-animate] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease;
+}
+
+[data-animate].active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* === SCRIPT UNTUK FADE IN === */
+@media (min-width: 769px) {
+  html {
+    scroll-behavior: smooth;
   }
 }
 
@@ -309,7 +361,6 @@ footer {
   color: #555;
 }
 
-
 /* === LAYANAN KAMI === */
 .layanan-wrapper {
   display: flex;
@@ -350,7 +401,6 @@ footer {
   line-height: 1.5;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .layanan-box {
     width: 100%;
