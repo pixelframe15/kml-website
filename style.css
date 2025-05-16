@@ -114,48 +114,6 @@ footer {
   padding: 0.8rem 2rem;
 }
 
-/* === LOGO OVAL MELAYANG === */
-.logo-left {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.logo-left::before {
-  content: '';
-  position: absolute;
-  left: -12px;
-  right: -12px;
-  top: -8px;
-  bottom: -8px;
-  background: white;
-  border-radius: 50px;
-  z-index: -1;
-  box-shadow: 0 0 15px rgba(0,0,0,0.1);
-}
-
-.desktop-logo {
-  width: 80px;
-  height: auto;
-}
-
-.mobile-logo {
-  display: none;
-  width: 60px;
-  height: auto;
-}
-
-.brand-text {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #f13223;
-  white-space: nowrap;
-  line-height: 1;
-  display: flex;
-  align-items: center;
-}
-
 /* === NAVIGATION === */
 .nav-menu {
   display: flex;
