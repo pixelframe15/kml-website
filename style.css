@@ -79,21 +79,30 @@ footer {
   object-fit: cover;
 }
 
-/* === HEADER GLASS + FLOAT === */
+/* === NAVBAR GLASS EFFECT + ORANGE SHADOW === */
 .main-header {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background: rgba(255, 255, 255, 0.6); /* lebih transparan */
+  position: fixed;
+  top: 20px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  max-width: 1200px;
+  padding: 0.8rem 2rem;
+  background: rgba(255, 255, 255, 0.6); /* transparan awal */
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-  border-bottom: 4px solid rgba(252, 144, 49, 0.4); /* orange soft */
-  border-radius: 12px;
-  margin: 20px;
+  border-radius: 15px;
+  box-shadow: 0 2px 10px rgba(252, 144, 49, 0.3); /* ORANGE SHADOW */
+  z-index: 1000;
+  transition: all 0.4s ease;
 }
 
+/* Header berubah saat scroll */
+.scrolled-header {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 6px 20px rgba(252, 144, 49, 0.5);
+}
 
 @keyframes fadeInDown {
   from {
