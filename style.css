@@ -4,7 +4,7 @@ body {
   margin: 0;
   padding: 0;
   background: #f7f8fc;
-  padding-top: 110px;
+  padding-top: 120px;
 }
 
 section {
@@ -82,12 +82,12 @@ footer {
 /* === NAVBAR GLASS EFFECT + ORANGE SHADOW === */
 .main-header {
   position: fixed;
-  top: 12px;
+  top: 10x;
   left: 0;
   right: 0;
   margin: auto;
   max-width: 1200px;
-  padding: 0.4rem 1.5rem;
+  padding: 0.5rem 1rem;
   background: rgba(255, 255, 255, 0.3); /* lebih transparan */
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -103,20 +103,21 @@ footer {
 /* Header berubah saat scroll */
 .scrolled-header {
   background: rgba(255, 255, 255, 0.75); /* blur tetap tapi transparan naik */
+  border-bottom: 2px solid #fc9031;
 }
 
 .main-header .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
+  padding: 0.5rem 1rem;
 }
 
 /* Logo */
 .logo-left {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
 }
 
 .desktop-logo {
@@ -129,7 +130,6 @@ footer {
   display: none;
   width: 180px;
   height: auto;
-  margin-left: 8px;
 }
 
 /* === NAVIGATION === */
@@ -140,7 +140,7 @@ footer {
 
 .nav-links {
   display: flex;
-  gap: 1rem;
+  gap: 0.8rem;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -149,23 +149,26 @@ footer {
 .nav-links li a {
   color: #16486c
   text-decoration: none;
-  padding: 0.4rem 0.8rem;
-  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
   transition: all 0.3s ease;
   font-weight: 500;
+display: flex;
+  align-items: center;
+  gap: 0.3rem;
 }
 
-..nav-links li a:hover {
+.nav-links li a:hover {
   color: #fc9031;
 }
 
 .nav-links li:last-child a {
-  background: #16486c;
+  background: #fc9031
   color: white;
 }
 
 .nav-links li:last-child a:hover {
-  background: #fc9031;
+  background: #e99348;
   color: #fff;
 }
 
@@ -188,8 +191,6 @@ footer {
     border-bottom: 3px solid #fc9031;
   }
 
-  .logo-left {
-  }
 
   .desktop-logo {
     display: none;
