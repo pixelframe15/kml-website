@@ -81,20 +81,19 @@ footer {
 
 /* === HEADER GLASS + FLOAT === */
 .main-header {
-  position: fixed;
-  top: 20px;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
-  max-width: 95%;
+  position: sticky;
+  top: 0;
   z-index: 1000;
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-radius: 16px;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-  animation: fadeInDown 0.6s ease;
+  background: rgba(255, 255, 255, 0.6); /* lebih transparan */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  border-bottom: 4px solid rgba(252, 144, 49, 0.4); /* orange soft */
+  border-radius: 12px;
+  margin: 20px;
 }
+
 
 @keyframes fadeInDown {
   from {
