@@ -122,26 +122,15 @@ footer {
   gap: 12px;
 }
 
-
 .desktop-logo {
-  width: 80px;
+  width: 120px;
   height: auto;
 }
 
 .mobile-logo {
   display: none;
-  width: 60px;
+  width: 90px;
   height: auto;
-}
-
-.brand-text {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #f13223;
-  white-space: nowrap;
-  line-height: 1;
-  display: flex;
-  align-items: center;
 }
 
 /* === NAVIGATION === */
