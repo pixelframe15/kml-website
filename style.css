@@ -81,12 +81,13 @@ footer {
   right: 0;
   margin: auto;
   max-width: 1200px;
+  height: 60px;
   padding: 0.6rem 1.5rem;
-  background: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-radius: 12px;
-  border-bottom: 4px solid #fc9031;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-radius: 50px;
+  border-bottom: 2px solid #fc9031;
   z-index: 1000;
   transition: all 0.3s ease;
   display: flex;
@@ -129,7 +130,7 @@ footer {
 }
 .nav-links {
   display: flex;
-  gap: 1rem;
+  gap: 1px;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -137,10 +138,17 @@ footer {
 .nav-links li a {
   color: #16486c;
   text-decoration: none;
+  font-size: 15px;
   padding: 0.5rem 1rem;
-  border-radius: 8px;
+  border-radius: 50px;
   transition: all 0.3s ease;
   font-weight: 500;
+}
+.nav-links li :hover {
+  background-color: none;
+  color: #fc9031 !important;
+  border-radius: 50px;
+  border-bottom: 2px solid #fc9031;
 }
 .nav-links li a:hover {
   color: #fc9031;
@@ -318,15 +326,14 @@ html {
     padding: 0.5rem 1rem;
     left: 0;
     right: 0;
-    border-radius: 0;
-    top: 10px;
+    top: 30px;
     margin: auto;
     width: 87%;
-    border-bottom: 3px solid #fc9031;
-    background: rgba(255, 255, 255, 0.4);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-radius: 12px;
+    border-bottom: 2px solid #fc9031;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border-radius: 50px;
   }
   .scrolled-header {
   background: rgba(255, 255, 255, 0.75);
@@ -348,6 +355,7 @@ html {
     position: absolute;
     top: 80px;
     right: 10px;
+    height: auto;
     background: white;
     flex-direction: column;
     width: 180px;
@@ -358,6 +366,9 @@ html {
   }
   .nav-links.show {
     display: flex;
+  }
+  .nav-links li {
+    padding: 0.7rem 1rem;
   }
   .nav-links li a {
     padding: 0.7rem 1rem;
