@@ -29,6 +29,61 @@ footer{text-align:center;padding:1rem;background:#222;color:#fff;font-size:.9rem
 /* === NAVIGATION === */
 .nav-menu{display:flex;align-items:center}
 .nav-links{display:flex;gap:1px;list-style:none;margin:0;padding:0}
+/* === DROPDOWN MENU === */
+.nav-links li.dropdown {
+  position: relative;
+}
+
+.nav-links .dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  padding: 0.5rem 0;
+  z-index: 1000;
+  min-width: 220px;
+}
+
+.nav-links li.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu li {
+  padding: 0.5rem 1rem;
+  color: #16486c;
+  white-space: nowrap;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.dropdown-menu li:hover {
+  background: #f2f2f2;
+  color: #fc9031;
+}
+
+.dropdown-menu .has-submenu {
+  position: relative;
+}
+
+.dropdown-menu .dropdown-submenu {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  padding: 0.5rem 0;
+  min-width: 200px;
+}
+
+.dropdown-menu .has-submenu:hover .dropdown-submenu {
+  display: block;
+}
+
 .nav-links li a{color:#16486c;text-decoration:none;font-size:15px;padding:.5rem 1rem;border-radius:50px;transition:.3s;font-weight:500}
 .nav-links li :hover{color:#fc9031!important;border-bottom:2px solid #fc9031}
 .nav-links li a:hover{color:#fc9031;background:transparent}
