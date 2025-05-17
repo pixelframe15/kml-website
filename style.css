@@ -233,6 +233,13 @@ footer {
     width: 100%;
     border-bottom: 3px solid #fc9031;
   }
+  .hero-image {
+    order: -1; /* Ini yang bikin gambar muncul di atas tulisan */
+  }
+
+  .hero-text {
+    order: 0;
+  }
   .main-header .container {
     padding: 0.5rem 1rem;
   }
