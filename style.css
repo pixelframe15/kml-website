@@ -1,396 +1,113 @@
 /* === RESET DASAR === */
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background: #f7f8fc;
-  padding-top: 120px;
+body{
+  font-family:Arial,sans-serif;margin:0;padding:0;background:#f7f8fc;padding-top:120px;
 }
-
-section {
-  padding: 2rem;
-  background: white;
-  margin: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-footer {
-  text-align: center;
-  padding: 1rem;
-  background: #222;
-  color: white;
-  font-size: 0.9rem;
-}
+section{padding:2rem;background:#fff;margin:1rem;border-radius:8px;box-shadow:0 2px 5px rgba(0,0,0,.1);}
+footer{text-align:center;padding:1rem;background:#222;color:#fff;font-size:.9rem}
 
 /* === WHATSAPP FLOATING === */
-.wa-wrapper {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 999;
-  text-align: right;
-}
-.wa-toggle {
-  background: #25d366;
-  color: white;
-  padding: 10px 15px;
-  border-radius: 30px;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-}
-.wa-toggle img {
-  width: 20px;
-  height: 20px;
-  margin-right: 10px;
-}
-.wa-list {
-  display: none;
-  flex-direction: column;
-  gap: 10px;
-  margin-top: 10px;
-}
-.wa-list.show {
-  display: flex;
-}
-.wa-btn {
-  background: #25d366;
-  color: white;
-  padding: 8px 12px;
-  border-radius: 30px;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-}
-.wa-btn img {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  margin-right: 8px;
-  object-fit: cover;
-}
+.wa-wrapper{position:fixed;bottom:20px;right:20px;z-index:999;text-align:right}
+.wa-toggle{background:#25d366;color:#fff;padding:10px 15px;border-radius:30px;display:flex;align-items:center;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,.2)}
+.wa-toggle img{width:20px;height:20px;margin-right:10px}
+.wa-list{display:none;flex-direction:column;gap:10px;margin-top:10px}
+.wa-list.show{display:flex}
+.wa-btn{background:#25d366;color:#fff;padding:8px 12px;border-radius:30px;text-decoration:none;display:flex;align-items:center;box-shadow:0 2px 5px rgba(0,0,0,.15)}
+.wa-btn img{width:28px;height:28px;border-radius:50%;margin-right:8px;object-fit:cover}
 
 /* === HEADER GLASS + SHADOW ORANGE === */
-.main-header {
-  position: fixed;
-  top: 20px;
-  left: 0;
-  right: 0;
-  margin: auto;
-  max-width: 1200px;
-  height: 60px;
-  padding: 0.6rem 1.5rem;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  border-radius: 50px;
-  border-bottom: 2px solid #fc9031;
-  z-index: 1000;
-  transition: all 0.3s ease;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.scrolled-header {
-  background: rgba(255, 255, 255, 0.75);
-}
+.main-header{position:fixed;top:20px;left:0;right:0;margin:auto;max-width:1200px;height:60px;padding:.6rem 1.5rem;background:rgba(255,255,255,.1);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border-radius:50px;border-bottom:2px solid #fc9031;z-index:1000;transition:.3s;display:flex;justify-content:space-between;align-items:center}
+.scrolled-header{background:rgba(255,255,255,.75)}
 
 /* === CONTAINER === */
-.main-header .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.5rem 1.5rem;
-  width: 100%;
-  gap: 1.5rem;
-}
+.main-header .container{display:flex;justify-content:space-between;align-items:center;padding:.5rem 1.5rem;width:100%;gap:1.5rem}
 
 /* === LOGO === */
-.logo-left {
-  display: flex;
-  align-items: center;
-}
-.desktop-logo {
-  width: 250px;
-  height: auto;
-}
-.mobile-logo {
-  display: none;
-  width: 180px;
-  height: auto;
-}
+.logo-left{display:flex;align-items:center}
+.desktop-logo{width:250px;height:auto}
+.mobile-logo{display:none;width:180px;height:auto}
 
 /* === NAVIGATION === */
-.nav-menu {
-  display: flex;
-  align-items: center;
-}
-.nav-links {
-  display: flex;
-  gap: 1px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.nav-links li a {
-  color: #16486c;
-  text-decoration: none;
-  font-size: 15px;
-  padding: 0.5rem 1rem;
-  border-radius: 50px;
-  transition: all 0.3s ease;
-  font-weight: 500;
-}
-.nav-links li :hover {
-  background-color: none;
-  color: #fc9031 !important;
-  border-radius: 50px;
-  border-bottom: 2px solid #fc9031;
-}
-.nav-links li a:hover {
-  color: #fc9031;
-  background: transparent;
-}
-.nav-links li .login-link:hover {
-  background-color: #fc9031;
-  color: white !important;
-}
-.menu-toggle {
-  display: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-  padding-left: 1rem;
-  color: #16486c;
-}
+.nav-menu{display:flex;align-items:center}
+.nav-links{display:flex;gap:1px;list-style:none;margin:0;padding:0}
+.nav-links li a{color:#16486c;text-decoration:none;font-size:15px;padding:.5rem 1rem;border-radius:50px;transition:.3s;font-weight:500}
+.nav-links li :hover{color:#fc9031!important;border-bottom:2px solid #fc9031}
+.nav-links li a:hover{color:#fc9031;background:transparent}
+.nav-links li .login-link:hover{background:#fc9031;color:#fff!important}
+.menu-toggle{display:none;font-size:1.5rem;cursor:pointer;padding-left:1rem;color:#16486c}
 
 /* === HERO SECTION === */
-.hero {
- background: #fff;
+.hero{background:#fff}
+.hero-container{display:flex;justify-content:space-between;align-items:center;max-width:1200px;margin:auto;gap:2rem;flex-wrap:wrap}
+.hero-text{flex:1;animation:fadeInUp 1s ease}
+.hero-tagline{font-size:.9rem;color:#fc9031;border:2px solid #fc9031;padding:6px 12px;border-radius:20px;font-weight:600;display:inline-block;margin-bottom:1rem}
+.hero-text h1{font-size:2rem;margin-bottom:1rem;line-height:1.4}
+.hero-text h1 .biru{color:#16486c}
+.hero-text h1 .orange{color:#fc9031}
+.hero-lead{font-size:1.05rem;color:#444;line-height:1.6}
+
+/* === Tambahan ukuran & warna sesuai arahan === */
+.hero-subheadline{
+  font-size:1.1rem;          /* sedikit lebih besar */
+  color:#16486c;             /* biru sesuai logo */
+  line-height:1.6;
+  margin-top:1.2rem;
 }
-.hero-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
-  margin: auto;
-  gap: 2rem;
-  flex-wrap: wrap;
+.hero-subtext{
+  font-size:1.1rem;
+  color:#fc9031;             /* oranye sesuai logo */
+  line-height:1.6;
+  margin-top:.8rem;
 }
-.hero-text {
-  flex: 1;
-  animation: fadeInUp 1s ease;
-}
-.hero-tagline {
-  font-size: 0.9rem;
-  color: #fc9031;
-  border: 2px solid #fc9031;
-  padding: 6px 12px;
-  border-radius: 20px;
-  font-weight: 600;
-  display: inline-block;
-  margin-bottom: 1rem;
-}
-.hero-text h1 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  line-height: 1.4;
-}
-.hero-text h1 .biru {
-  color: #16486c;
-}
-.hero-text h1 .orange {
-  color: #fc9031;
-}
-.hero-text p {
-  font-size: 1.05rem;
-  color: #444;
-  line-height: 1.6;
-}
-.hero-image {
-  flex: 1;
-  text-align: center;
-}
-.hero-image img {
-  max-width: 100%;
-  height: auto;
-  animation: fadeIn 1.5s ease;
-}
+
+.hero-image{flex:1;text-align:center}
+.hero-image img{max-width:100%;height:auto;animation:fadeIn 1.5s ease}
 
 /* Animasi Fade */
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
 
 /* === TENTANG KAMI(desktop) === */
-.tentang-content {
-  max-width: 800px;
-  margin: 0 auto 2rem;
-  font-size: 1.05rem;
-  line-height: 1.7;
-  color: #333;
-}
-.tentang-icons {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  flex-wrap: wrap;
-}
-.icon-box {
-  background: #fff;
-  border-radius: 8px;
-  padding: 1.5rem;
-  width: 250px;
-  text-align: center;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-.icon-box i {
-  font-size: 2.5rem;
-  color: #fc9031;
-  margin-bottom: 1rem;
-}
-.icon-box h4 {
-  color: #fc9031;
-  margin-bottom: 0.5rem;
-}
-.icon-box p {
-  font-size: 0.95rem;
-  color: #555;
-}
+.tentang-content{max-width:800px;margin:0 auto 2rem;font-size:1.05rem;line-height:1.7;color:#333}
+.tentang-icons{display:flex;justify-content:center;gap:2rem;flex-wrap:wrap}
+.icon-box{background:#fff;border-radius:8px;padding:1.5rem;width:250px;text-align:center;box-shadow:0 2px 5px rgba(0,0,0,.1)}
+.icon-box i{font-size:2.5rem;color:#fc9031;margin-bottom:1rem}
+.icon-box h4{color:#fc9031;margin-bottom:.5rem}
+.icon-box p{font-size:.95rem;color:#555}
 
 /* === LAYANAN KAMI(desktop) === */
-.layanan-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
-  margin-top: 2rem;
-}
-.layanan-box {
-  background: #fff;
-  border-radius: 8px;
-  padding: 1.5rem;
-  width: 280px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  text-align: center;
-  transition: transform 0.3s ease;
-}
-.layanan-box:hover {
-  transform: translateY(-5px);
-}
-.layanan-box i {
-  font-size: 2.5rem;
-  color: #fc9031;
-  margin-bottom: 1rem;
-}
-.layanan-box h3 {
-  color: #fc9031;
-  margin-bottom: 0.5rem;
-}
-.layanan-box p {
-  font-size: 0.95rem;
-  color: #444;
-  line-height: 1.5;
-}
-@media (max-width: 768px) {
-  .layanan-box {
-    width: 100%;
-  }
-}
+.layanan-wrapper{display:flex;flex-wrap:wrap;justify-content:center;gap:2rem;margin-top:2rem}
+.layanan-box{background:#fff;border-radius:8px;padding:1.5rem;width:280px;box-shadow:0 2px 8px rgba(0,0,0,.1);text-align:center;transition:.3s}
+.layanan-box:hover{transform:translateY(-5px)}
+.layanan-box i{font-size:2.5rem;color:#fc9031;margin-bottom:1rem}
+.layanan-box h3{color:#fc9031;margin-bottom:.5rem}
+.layanan-box p{font-size:.95rem;color:#444;line-height:1.5}
+@media(max-width:768px){.layanan-box{width:100%}}
 
 /* === ANIMASI SAAT SCROLL === */
-[data-animate] {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.8s ease;
-}
-[data-animate].active {
-  opacity: 1;
-  transform: translateY(0);
-}
-html {
-  scroll-behavior: smooth;
-}
+[data-animate]{opacity:0;transform:translateY(20px);transition:.8s}
+[data-animate].active{opacity:1;transform:translateY(0)}
+html{scroll-behavior:smooth}
 
 /* === RESPONSIVE NAV & HERO === */
-@media (max-width: 768px) {
-  .main-header {
-    flex-direction: row;
-    padding: 0.5rem 1rem;
-    left: 0;
-    right: 0;
-    top: 30px;
-    margin: auto;
-    width: 87%;
-    border-bottom: 2px solid #fc9031;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    border-radius: 50px;
-  }
-  .scrolled-header {
-  background: rgba(255, 255, 255, 0.75);
-  }
-  .hero-image {
-    order: -1; /* Ini yang bikin gambar muncul di atas tulisan */
-  }
+@media(max-width:768px){
+  .main-header{padding:.5rem 1rem;top:30px;width:87%}
+  .scrolled-header{background:rgba(255,255,255,.75)}
+  .hero-image{order:-1}
+  .hero-text{order:0}
+  .main-header .container{padding:.5rem 1rem}
+  .logo-left{margin-left:.5px}
+  .nav-links{position:absolute;top:80px;right:10px;background:#fff;flex-direction:column;width:180px;border-radius:8px;box-shadow:0 4px 10px rgba(0,0,0,.1);display:none;padding:1rem}
+  .nav-links.show{display:flex}
+  .nav-links li{padding:.7rem 1rem}
+  .nav-links li a{padding:.7rem 1rem}
+  .menu-toggle{display:block}
+  .desktop-logo{display:none}
+  .mobile-logo{display:block}
 
-  .hero-text {
-    order: 0;
-  }
-  .main-header .container {
-    padding: 0.5rem 1rem;
-  }
-  .logo-left {
-    margin-left: 0.5px;
-  }
-  .nav-links {
-    position: absolute;
-    top: 80px;
-    right: 10px;
-    height: auto;
-    background: white;
-    flex-direction: column;
-    width: 180px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    display: none;
-    padding: 1rem;
-  }
-  .nav-links.show {
-    display: flex;
-  }
-  .nav-links li {
-    padding: 0.7rem 1rem;
-  }
-  .nav-links li a {
-    padding: 0.7rem 1rem;
-  }
-  .menu-toggle {
-    display: block;
-  }
-  .desktop-logo {
-    display: none;
-  }
-  .mobile-logo {
-    display: block;
-  }
-
-/* --- INI TAMBAHAN UNTUK HERO MOBILE --- */
-  .hero-container {
-    flex-direction: column;
-    text-align: center;
-  }
-  .hero-image img {
-    max-width: 280px;
-  }
+  /* HERO mobile */
+  .hero-container{flex-direction:column;text-align:center}
+  .hero-image img{max-width:280px}
+}
 
 /* === TENTANG KAMI (mobile) === */
 .tentang-content {
