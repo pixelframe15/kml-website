@@ -43,7 +43,7 @@ footer{text-align:center;padding:1rem;background:#222;color:#fff;font-size:.9rem
 .hero-text h1{font-size:2rem;margin-bottom:1rem;line-height:1.4}
 .hero-text h1 .biru{color:#16486c}
 .hero-text h1 .orange{color:#fc9031}
-.hero-lead{font-size:1.05rem;color:#444;line-height:1.6}
+.hero-lead{font-size:1.05rem;color:#16486c;line-height:1.6}
 
 /* === Tambahan ukuran & warna sesuai arahan === */
 .hero-subheadline{
@@ -66,13 +66,38 @@ footer{text-align:center;padding:1rem;background:#222;color:#fff;font-size:.9rem
 @keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 
-/* === TENTANG KAMI(desktop) === */
-.tentang-content{max-width:800px;margin:0 auto 2rem;font-size:1.05rem;line-height:1.7;color:#333}
-.tentang-icons{display:flex;justify-content:center;gap:2rem;flex-wrap:wrap}
-.icon-box{background:#fff;border-radius:8px;padding:1.5rem;width:250px;text-align:center;box-shadow:0 2px 5px rgba(0,0,0,.1)}
-.icon-box i{font-size:2.5rem;color:#fc9031;margin-bottom:1rem}
-.icon-box h4{color:#fc9031;margin-bottom:.5rem}
-.icon-box p{font-size:.95rem;color:#555}
+/* === TENTANG KAMI (Dua Kolom) DESKTOP === */
+.tentang-section {background: #fff;padding: 3rem 1rem;}
+.tentang-container {max-width: 1200px;margin: auto;}
+.tentang-row {display: flex;align-items: center;gap: 2rem;flex-wrap: wrap;}
+.tentang-image {flex: 1;text-align: center;}
+.tentang-image img {max-width: 100%;height: auto;border-radius: 12px;box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);}
+.tentang-content {flex: 1;}
+.tentang-content h2 {font-size: 2rem;color: #16486c;margin-bottom: 1rem;}
+.tentang-content p {font-size: 1rem;line-height: 1.7;color: #444;}
+
+/* Tombol */
+.tentang-buttons {margin-top: 1.5rem;display: flex;flex-wrap: wrap;gap: 1rem;}
+.btn {display: inline-flex;align-items: center;padding: 0.75rem 1.25rem;font-size: 0.95rem;border: none;border-radius: 6px;text-decoration: none;font-weight: 500;transition: 0.3s ease;}
+.btn i {margin-right: 0.5rem;}
+.btn.konsultasi {background-color: #40dd10;color: #fff;}
+.btn.cek-tarif {background-color: #fc9031;color: #fff;}
+
+/* === KEUNGGULAN (ikon horizontal) === */
+.keunggulan-section {margin-top: 3rem;}
+.keunggulan-container {display: flex;justify-content: center;gap: 2rem;flex-wrap: wrap;text-align: center;}
+.keunggulan-box {flex: 1 1 250px;background: #f9f9f9;border-radius: 12px;padding: 1.5rem;box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);}
+.keunggulan-box i {font-size: 2.5rem;color: #fc9031;margin-bottom: 1rem;}
+.keunggulan-box h4 {font-size: 1.2rem;color: #16486c;margin-bottom: 0.5rem;}
+.keunggulan-box p {font-size: 0.95rem;color: #555;}
+
+/* === RESPONSIVE (MOBILE & TABLET) === */
+@media (max-width: 768px) {
+.tentang-row {flex-direction: column;text-align: center;}
+.tentang-content {padding: 0 1rem;}
+.tentang-buttons {justify-content: center;}
+.keunggulan-container {flex-direction: column;gap: 1.5rem;}
+.tentang-image{order:-1}
 
 /* === LAYANAN KAMI(desktop) === */
 .layanan-wrapper{display:flex;flex-wrap:wrap;justify-content:center;gap:2rem;margin-top:2rem}
