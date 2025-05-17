@@ -266,7 +266,16 @@ footer {
   .mobile-logo {
     display: block;
   }
-}
+
+/* --- INI TAMBAHAN UNTUK HERO MOBILE --- */
+  .hero-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .hero-image img {
+    max-width: 280px;
+    margin-bottom: 1rem;
+  }
 
 /* === TENTANG KAMI === */
 .tentang-content {
