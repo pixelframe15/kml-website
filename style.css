@@ -222,6 +222,96 @@ footer {
   to { opacity: 1; }
 }
 
+/* === TENTANG KAMI(desktop) === */
+.tentang-content {
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #333;
+}
+.tentang-icons {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.icon-box {
+  background: #fff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  width: 250px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.icon-box i {
+  font-size: 2.5rem;
+  color: #fc9031;
+  margin-bottom: 1rem;
+}
+.icon-box h4 {
+  color: #fc9031;
+  margin-bottom: 0.5rem;
+}
+.icon-box p {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* === LAYANAN KAMI(desktop) === */
+.layanan-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+.layanan-box {
+  background: #fff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  width: 280px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+.layanan-box:hover {
+  transform: translateY(-5px);
+}
+.layanan-box i {
+  font-size: 2.5rem;
+  color: #fc9031;
+  margin-bottom: 1rem;
+}
+.layanan-box h3 {
+  color: #fc9031;
+  margin-bottom: 0.5rem;
+}
+.layanan-box p {
+  font-size: 0.95rem;
+  color: #444;
+  line-height: 1.5;
+}
+@media (max-width: 768px) {
+  .layanan-box {
+    width: 100%;
+  }
+}
+
+/* === ANIMASI SAAT SCROLL === */
+[data-animate] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease;
+}
+[data-animate].active {
+  opacity: 1;
+  transform: translateY(0);
+}
+html {
+  scroll-behavior: smooth;
+}
+
 /* === RESPONSIVE NAV & HERO === */
 @media (max-width: 768px) {
   .main-header {
@@ -284,7 +374,7 @@ footer {
     margin-bottom: 1rem;
   }
 
-/* === TENTANG KAMI === */
+/* === TENTANG KAMI (mobile) === */
 .tentang-content {
   max-width: 800px;
   margin: 0 auto 2rem;
@@ -320,7 +410,7 @@ footer {
   color: #555;
 }
 
-/* === LAYANAN KAMI === */
+/* === LAYANAN KAMI (mobile) === */
 .layanan-wrapper {
   display: flex;
   flex-wrap: wrap;
