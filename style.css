@@ -205,9 +205,10 @@ footer {
   color: #fc9031;
 }
 .hero-text p {
-  font-size: 20px;
-  color: #16486c;
+  font-size: 1.05rem;
+  color: #444;
   line-height: 1.6;
+}
 .hero-image {
   flex: 1;
   text-align: center;
@@ -216,31 +217,6 @@ footer {
   max-width: 100%;
   height: auto;
   animation: fadeIn 1.5s ease;
-}
-.hero-subheadline {
-  font-size: 2.8rem;
-  color: #fc9031;
-  text-align: center;
-  line-height: 1.7;
-  margin-top: 1rem;
-}
-.hero-subheadline strong {
-  color: #16486c;
-  display: block;
-  margin-bottom: 0.5rem;
-}
-.hero-subheadline bold {
-  font-size: 1.8rem;
-  color: #fc9031;
-  display: block;
-  margin-bottom: 0.5rem;
-}
-.hero-subtext {
-  font-size: 2.8rem;
-  color: #16486c;
-  text-align: center;
-  line-height: 1.7;
-  margin-top: 1rem;
 }
 
 /* Animasi Fade */
@@ -415,29 +391,7 @@ html {
   .hero-image img {
     max-width: 280px;
   }
-.hero-subheadline {
-  font-size: 2.1rem;
-  text-align: center;
-  margin-top: 1rem;
-}
-.hero-subheadline strong {
-  color: #16486c;
-  display: block;
-  margin-bottom: 0.5rem;
-}
-.hero-subheadline bold {
-  font-size: 1.2rem;
-  color: #fc9031;
-  display: block;
-  margin-bottom: 0.5rem;
-}
-.hero-subtext {
-  font-size: 1.3rem;
-  color: #16486c;
-  text-align: center;
-  line-height: 1.7;
-  margin-top: 1rem;
-}
+
 /* === TENTANG KAMI (mobile) === */
 .tentang-content {
   max-width: 800px;
