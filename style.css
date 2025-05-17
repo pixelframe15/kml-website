@@ -47,13 +47,13 @@ footer{text-align:center;padding:1rem;background:#222;color:#fff;font-size:.9rem
 
 /* === Tambahan ukuran & warna sesuai arahan === */
 .hero-subheadline{
-  font-size:1.1rem;          /* sedikit lebih besar */
+  font-size:1.8rem;          /* sedikit lebih besar */
   color:#16486c;             /* biru sesuai logo */
   line-height:1.6;
   margin-top:1.2rem;
 }
 .hero-subtext{
-  font-size:1.1rem;
+  font-size:1.25rem;
   color:#fc9031;             /* oranye sesuai logo */
   line-height:1.6;
   margin-top:.8rem;
