@@ -160,8 +160,7 @@ footer {
 
 /* === HERO SECTION === */
 .hero {
-  padding: 80px 20px;
-  background: #fff;
+ background: #fff;
 }
 .hero-container {
   display: flex;
@@ -317,11 +316,20 @@ html {
   .main-header {
     flex-direction: row;
     padding: 0.5rem 1rem;
+    left: 0;
+    right: 0;
     border-radius: 0;
-    top: 0;
-    margin: 0;
-    width: 100%;
+    top: 10px;
+    margin: auto;
+    width: 87%;
     border-bottom: 3px solid #fc9031;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 12px;
+  }
+  .scrolled-header {
+  background: rgba(255, 255, 255, 0.75);
   }
   .hero-image {
     order: -1; /* Ini yang bikin gambar muncul di atas tulisan */
@@ -334,7 +342,7 @@ html {
     padding: 0.5rem 1rem;
   }
   .logo-left {
-    margin-left: 10px;
+    margin-left: 0.5px;
   }
   .nav-links {
     position: absolute;
@@ -342,11 +350,11 @@ html {
     right: 10px;
     background: white;
     flex-direction: column;
-    width: 200px;
+    width: 150px;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     display: none;
-    padding: 0.5rem;
+    padding: 1rem;
   }
   .nav-links.show {
     display: flex;
@@ -371,7 +379,6 @@ html {
   }
   .hero-image img {
     max-width: 280px;
-    margin-bottom: 1rem;
   }
 
 /* === TENTANG KAMI (mobile) === */
@@ -463,3 +470,4 @@ html {
 html {
   scroll-behavior: smooth;
 }
+
