@@ -147,7 +147,7 @@ footer{text-align:center;padding:1rem;background:#222;color:#fff;font-size:.9rem
 .keunggulan-box h4 {font-size: 1.2rem;color: #16486c;margin-bottom: 0.5rem;}
 .keunggulan-box p {font-size: 0.95rem;color: #555;}
 
-/* === LAYANAN BARU TERSTRUKTUR === */
+/* === LAYANAN TERSTRUKTUR === */
 .layanan {
   background: #f9f9f9;
   padding: 3rem 1rem;
@@ -166,7 +166,7 @@ footer{text-align:center;padding:1rem;background:#222;color:#fff;font-size:.9rem
 }
 
 .layanan-kategori {
-  margin-bottom: 2.5rem;
+  margin-bottom: 3rem;
 }
 
 .layanan-kategori h3 {
@@ -181,38 +181,86 @@ footer{text-align:center;padding:1rem;background:#222;color:#fff;font-size:.9rem
 
 .layanan-group {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 1.5rem;
 }
 
 .layanan-box {
   background: #fff;
   border-radius: 8px;
-  padding: 1.5rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
+  overflow: hidden;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
 }
 
-.layanan-box:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 5px 15px rgba(252, 144, 49, 0.2);
+.layanan-img {
+  height: 180px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.img-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(22,72,108,0.6));
+}
+
+.layanan-content {
+  padding: 1.5rem;
 }
 
 .layanan-box h4 {
   color: #16486c;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.8rem;
+  font-size: 1.2rem;
 }
 
 .layanan-box p {
   color: #555;
   font-size: 0.95rem;
-  line-height: 1.5;
+  line-height: 1.6;
+  margin-bottom: 1.2rem;
+}
+
+.btn-selengkapnya {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.6rem 1.2rem;
+  background: #fc9031;
+  color: white;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.btn-selengkapnya:hover {
+  background: #16486c;
+  transform: translateX(5px);
+}
+
+.btn-selengkapnya i {
+  margin-left: 6px;
+  font-size: 0.8rem;
+}
+
+.layanan-box:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 20px rgba(252, 144, 49, 0.15);
 }
 
 /* Responsive */
 @media (max-width: 768px) {
   .layanan-group {
     grid-template-columns: 1fr;
+  }
+  
+  .layanan-img {
+    height: 150px;
   }
 }
 
