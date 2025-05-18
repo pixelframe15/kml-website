@@ -39,8 +39,8 @@ footer{text-align:center;padding:1rem;background:#222;color:#fff;font-size:.9rem
   position: absolute;
   top: 100%;
   left: 0;
-  background: #fff;
-  border-radius: 8px;
+  background:rgba(255,255,255,.7);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-radius: 20px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   padding: 0.5rem 0;
   z-index: 1000;
@@ -73,8 +73,8 @@ footer{text-align:center;padding:1rem;background:#222;color:#fff;font-size:.9rem
   position: absolute;
   top: 0;
   left: 100%;
-  background: #fff;
-  border-radius: 8px;
+  background:rgba(255,255,255,.7);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-radius: 20px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   padding: 0.5rem 0;
   min-width: 200px;
