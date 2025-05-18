@@ -147,6 +147,75 @@ footer{text-align:center;padding:1rem;background:#222;color:#fff;font-size:.9rem
 .keunggulan-box h4 {font-size: 1.2rem;color: #16486c;margin-bottom: 0.5rem;}
 .keunggulan-box p {font-size: 0.95rem;color: #555;}
 
+/* === LAYANAN BARU TERSTRUKTUR === */
+.layanan {
+  background: #f9f9f9;
+  padding: 3rem 1rem;
+}
+
+.layanan h2 {
+  text-align: center;
+  color: #16486c;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+.layanan-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.layanan-kategori {
+  margin-bottom: 2.5rem;
+}
+
+.layanan-kategori h3 {
+  color: #fc9031;
+  border-bottom: 2px solid #fc9031;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.layanan-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.layanan-box {
+  background: #fff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.layanan-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(252, 144, 49, 0.2);
+}
+
+.layanan-box h4 {
+  color: #16486c;
+  margin-bottom: 0.5rem;
+}
+
+.layanan-box p {
+  color: #555;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .layanan-group {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* === RESPONSIVE (MOBILE & TABLET) === */
 @media (max-width: 768px) {
 .tentang-row {flex-direction: column;text-align: center;}
@@ -155,14 +224,7 @@ footer{text-align:center;padding:1rem;background:#222;color:#fff;font-size:.9rem
 .keunggulan-container {flex-direction: column;gap: 1.5rem;}
 .tentang-image{order:-1}
 
-/* === LAYANAN KAMI(desktop) === */
-.layanan-wrapper{display:flex;flex-wrap:wrap;justify-content:center;gap:2rem;margin-top:2rem}
-.layanan-box{background:#fff;border-radius:8px;padding:1.5rem;width:280px;box-shadow:0 2px 8px rgba(0,0,0,.1);text-align:center;transition:.3s}
-.layanan-box:hover{transform:translateY(-5px)}
-.layanan-box i{font-size:2.5rem;color:#fc9031;margin-bottom:1rem}
-.layanan-box h3{color:#fc9031;margin-bottom:.5rem}
-.layanan-box p{font-size:.95rem;color:#444;line-height:1.5}
-@media(max-width:768px){.layanan-box{width:100%}}
+/* === LAYANAN KAMI(desktop) LAMA === */
 
 /* === ANIMASI SAAT SCROLL === */
 [data-animate]{opacity:0;transform:translateY(20px);transition:.8s}
@@ -226,45 +288,7 @@ html{scroll-behavior:smooth}
   color: #555;
 }
 
-/* === LAYANAN KAMI (mobile) === */
-.layanan-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
-  margin-top: 2rem;
-}
-.layanan-box {
-  background: #fff;
-  border-radius: 8px;
-  padding: 1.5rem;
-  width: 280px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  text-align: center;
-  transition: transform 0.3s ease;
-}
-.layanan-box:hover {
-  transform: translateY(-5px);
-}
-.layanan-box i {
-  font-size: 2.5rem;
-  color: #fc9031;
-  margin-bottom: 1rem;
-}
-.layanan-box h3 {
-  color: #fc9031;
-  margin-bottom: 0.5rem;
-}
-.layanan-box p {
-  font-size: 0.95rem;
-  color: #444;
-  line-height: 1.5;
-}
-@media (max-width: 768px) {
-  .layanan-box {
-    width: 100%;
-  }
-}
+/* === LAYANAN KAMI (mobile) LAMA === */
 
 /* === ANIMASI SAAT SCROLL === */
 [data-animate] {
