@@ -3,79 +3,204 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- Sama seperti head di index.html -->
   <title>Daftar Tarif Pengiriman Mobil | PT Karya Mandiri Logistic</title>
   <!-- Meta SEO -->
-  <meta name="description" content="PT. Karya Mandiri Logistic adalah penyedia layanan ekspedisi dan logistik terpercaya ke seluruh Indonesia.">
-  <meta name="keywords" content="ekspedisi, cargo, logistik, pengiriman mobil, kirim barang, jasa angkut">
+  <meta name="description" content="Daftar tarif terbaru pengiriman mobil ke seluruh Indonesia oleh PT. Karya Mandiri Logistic">
+  <meta name="keywords" content="tarif pengiriman mobil, biaya kirim mobil, harga towing mobil, tarif car carrier">
   <meta name="author" content="PT. Karya Mandiri Logistics">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="PT Karya Mandiri Logistics">
-  <meta property="og:description" content="Spesialis pengiriman barang & kendaraan ke seluruh Indonesia dari Surabaya.">
+  <meta property="og:title" content="Daftar Tarif Pengiriman Mobil | PT Karya Mandiri Logistics">
+  <meta property="og:description" content="Lihat tarif terbaru pengiriman mobil ke seluruh Indonesia dari Surabaya.">
   <meta property="og:image" content="assets/logo-kml.png">
-  <meta property="og:url" content="https://kml-logistics.vercel.app/">
+  <meta property="og:url" content="https://kml-logistics.vercel.app/tarif.html">
 
   <!-- Styles & Icons -->
   <link rel="icon" href="assets/favicon.ico" />
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    /* Tambahan style khusus halaman tarif */
+    .tarif-section {
+      padding: 2rem 0;
+      background-color: #f9f9f9;
+    }
+    
+    .tarif-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    
+    .show-entries {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .search-box {
+      display: flex;
+      align-items: center;
+    }
+    
+    .search-box input {
+      padding: 0.5rem;
+      border: 1px solid #ddd;
+      border-radius: 4px 0 0 4px;
+    }
+    
+    .search-box button {
+      padding: 0.5rem 1rem;
+      background-color: #2c3e50;
+      color: white;
+      border: none;
+      border-radius: 0 4px 4px 0;
+      cursor: pointer;
+    }
+    
+    .table-responsive {
+      overflow-x: auto;
+    }
+    
+    .tarif-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 1rem;
+    }
+    
+    .tarif-table th, .tarif-table td {
+      padding: 12px 15px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    
+    .tarif-table th {
+      background-color: #2c3e50;
+      color: white;
+      position: sticky;
+      top: 0;
+    }
+    
+    .tarif-table tr:hover {
+      background-color: #f5f5f5;
+    }
+    
+    .pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 1.5rem 0;
+      gap: 0.5rem;
+    }
+    
+    .page-nav, .page-numbers a {
+      padding: 0.5rem 1rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      text-decoration: none;
+      color: #333;
+    }
+    
+    .page-nav.disabled {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+    
+    .page-numbers a.active {
+      background-color: #2c3e50;
+      color: white;
+      border-color: #2c3e50;
+    }
+    
+    .showing-entries {
+      text-align: center;
+      color: #666;
+    }
+    
+    .loading {
+      text-align: center;
+      padding: 2rem;
+      font-style: italic;
+      color: #666;
+    }
+    
+    .error-message {
+      color: #e74c3c;
+      text-align: center;
+      padding: 1rem;
+      background-color: #fde8e8;
+      border-radius: 4px;
+      margin: 1rem 0;
+    }
+    
+    @media (max-width: 768px) {
+      .tarif-controls {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      
+      .tarif-table th, .tarif-table td {
+        padding: 8px 10px;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
 </head>
 <body>
-  <!-- Header (salin dari index.html) -->
-   <header class="main-header">
-  <div class="container">
-    <div class="logo-left">
-      <img src="assets/logo-kml.png" alt="Logo Desktop" class="desktop-logo" />
-      <img src="assets/logo-kml.png" alt="Logo Mobile" class="mobile-logo" />
+  <header class="main-header">
+    <div class="container">
+      <div class="logo-left">
+        <img src="assets/logo-kml.png" alt="Logo Desktop" class="desktop-logo" />
+        <img src="assets/logo-kml.png" alt="Logo Mobile" class="mobile-logo" />
+      </div>
+      <nav class="nav-menu">
+        <ul class="nav-links">
+          <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+          <li><a href="index.html#tentang"><i class="fas fa-info-circle"></i> Tentang Kami</a></li>
+          <li class="dropdown">
+            <a href="index.html#layanan"><i class="fas fa-box"></i> Layanan <i class="fas fa-caret-down"></i></a>
+            <ul class="dropdown-menu">
+              <li class="has-submenu">Kirim Mobil
+                <ul class="dropdown-submenu">
+                  <li>Kirim Mobil Via Towing</li>
+                  <li>Kirim Mobil Via Car Carrier</li>
+                  <li>Kirim Mobil Via Self Drive</li>
+                  <li>Kirim Mobil Via Kapal Roro</li>
+                </ul>
+              </li>
+              <li class="has-submenu">Kargo
+                <ul class="dropdown-submenu">
+                  <li>Kargo Jalur Darat</li>
+                  <li>Kargo Jalur Udara</li>
+                  <li>Kargo Jalur Laut</li>
+                </ul>
+              </li>
+              <li>Jasa Packing Barang</li>
+              <li>Jasa Sewa Container</li>
+              <li>Jasa Sewa CDD dan CDE</li>
+              <li>Jasa Kirim Alat Berat</li>
+              <li>Trucking Pindahan</li>
+              <li>Door To Door Service</li>
+              <li>Undername Service</li>
+              <li>Customs Clearance</li>
+              <li>Sea & Air Freight</li>
+            </ul>
+          </li>
+          <li><a href="index.html#gallery"><i class="fas fa-image"></i> Gallery</a></li>
+          <li><a href="index.html#kontak"><i class="fas fa-envelope"></i> Kontak</a></li>
+          <li class="new-menu-item"><a href="tarif.html" class="nav-link active">
+            <i class="fas fa-calculator"></i> Cek Tarif<span class="new-badge">Baru</span></a></li>
+          <li><a href="index.html#blog"><i class="fas fa-blog"></i> Blog</a></li>
+          <li><a href="#login" class="login-link"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+        </ul>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+      </nav>
     </div>
-    <nav class="nav-menu">
-      <ul class="nav-links">
-        <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
-        <li><a href="#tentang"><i class="fas fa-info-circle"></i> Tentang Kami</a></li>
-        <li class="dropdown">
-  <a href="#layanan"><i class="fas fa-box"></i> Layanan <i class="fas fa-caret-down"></i></a>
-  <ul class="dropdown-menu">
-    <li class="has-submenu">Kirim Mobil
-      <ul class="dropdown-submenu">
-        <li>Kirim Mobil Via Towing</li>
-        <li>Kirim Mobil Via Car Carrier</li>
-        <li>Kirim Mobil Via Self Drive</li>
-        <li>Kirim Mobil Via Kapal Roro</li>
-      </ul>
-    </li>
-    <li class="has-submenu">Kargo
-      <ul class="dropdown-submenu">
-        <li>Kargo Jalur Darat</li>
-        <li>Kargo Jalur Udara</li>
-        <li>Kargo Jalur Laut</li>
-      </ul>
-    </li>
-    <li>Jasa Packing Barang</li>
-    <li>Jasa Sewa Container</li>
-    <li>Jasa Sewa CDD dan CDE</li>
-    <li>Jasa Kirim Alat Berat</li>
-    <li>Trucking Pindahan</li>
-    <li>Door To Door Service</li>
-    <li>Undername Service</li>
-    <li>Customs Clearance</li>
-    <li>Sea & Air Freight</li>
-  </ul>
-</li>
+  </header>
 
-        <li><a href="#gallery"><i class="fas fa-image"></i> Gallery</a></li>
-        <li><a href="#kontak"><i class="fas fa-envelope"></i> Kontak</a></li>
-        <li class="new-menu-item"><a href="#cek-tarif" class="nav-link"> <!-- Ganti class ke nav-link -->
-         <i class="fas fa-calculator"></i> Cek Tarif<span class="new-badge">Baru</span></a></li>
-        <li><a href="#blog"><i class="fas fa-blog"></i> Blog</a></li>
-        <li><a href="#login" class="login-link"><i class="fas fa-sign-in-alt"></i> Login</a></li>
-      </ul>
-      <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-    </nav>
-  </div>
-</header>
-
-  
   <section class="tarif-section">
     <div class="container">
       <h2><i class="fas fa-money-bill-wave"></i> Daftar Tarif Pengiriman</h2>
@@ -94,100 +219,510 @@
           <span>entri</span>
         </div>
         
+        <div class="filter-group">
+          <select id="layanan-filter" class="filter-select">
+            <option value="">Semua Layanan</option>
+            <option value="RORO">RORO</option>
+            <option value="SELF DRIVE">SELF DRIVE</option>
+            <option value="CAR TOWING">CAR TOWING</option>
+            <option value="CONTAINER">CONTAINER</option>
+          </select>
+          
+          <select id="estimasi-filter" class="filter-select">
+            <option value="">Semua Estimasi</option>
+            <option value="1-3">1-3 Hari</option>
+            <option value="3-7">3-7 Hari</option>
+            <option value="7-14">7-14 Hari</option>
+            <option value="14+">14+ Hari</option>
+          </select>
+        </div>
+        
         <div class="search-box">
           <input type="text" id="search-input" placeholder="Cari kota tujuan...">
-          <button><i class="fas fa-search"></i></button>
+          <button id="search-btn"><i class="fas fa-search"></i></button>
         </div>
       </div>
+      
+      <!-- Pesan Error -->
+      <div id="error-message" class="error-message" style="display: none;"></div>
       
       <!-- Tabel Tarif -->
       <div class="table-responsive">
         <table class="tarif-table">
           <thead>
             <tr>
-              <th>ID</th>
-              <th>Kota Tujuan</th>
-              <th>Tarif</th>
-              <th>Estimasi</th>
-              <th>Keterangan</th>
+              <th>ID <i class="fas fa-sort sort-icon" data-column="ID"></i></th>
+              <th>Kota Tujuan <i class="fas fa-sort sort-icon" data-column="Kota Tujuan"></i></th>
+              <th>Tarif <i class="fas fa-sort sort-icon" data-column="Tarif"></i></th>
+              <th>Estimasi <i class="fas fa-sort sort-icon" data-column="Estimasi"></i></th>
+              <th>Layanan <i class="fas fa-sort sort-icon" data-column="Keterangan"></i></th>
             </tr>
           </thead>
-          <tbody>
-            <!-- Data akan diisi oleh JavaScript -->
+          <tbody id="tarif-data">
+            <tr>
+              <td colspan="5" class="loading">Memuat data tarif...</td>
+            </tr>
           </tbody>
         </table>
       </div>
       
       <!-- Pagination -->
       <div class="pagination">
-        <a href="#" class="page-nav disabled"><i class="fas fa-angle-double-left"></i></a>
-        <a href="#" class="page-nav disabled"><i class="fas fa-angle-left"></i></a>
+        <a href="#" id="first-page" class="page-nav disabled"><i class="fas fa-angle-double-left"></i></a>
+        <a href="#" id="prev-page" class="page-nav disabled"><i class="fas fa-angle-left"></i></a>
         
-        <div class="page-numbers">
+        <div class="page-numbers" id="page-numbers">
           <a href="#" class="active">1</a>
-          <a href="#">2</a>
-          <a href="#">3</a>
-          <a href="#">4</a>
-          <span>...</span>
-          <a href="#">12</a>
         </div>
         
-        <a href="#" class="page-nav"><i class="fas fa-angle-right"></i></a>
-        <a href="#" class="page-nav"><i class="fas fa-angle-double-right"></i></a>
+        <a href="#" id="next-page" class="page-nav"><i class="fas fa-angle-right"></i></a>
+        <a href="#" id="last-page" class="page-nav"><i class="fas fa-angle-double-right"></i></a>
       </div>
       
-      <div class="showing-entries">
-        Menampilkan 1 sampai 30 dari 156 entri
+      <div class="showing-entries" id="showing-entries">
+        Menampilkan 0 dari 0 entri
       </div>
     </div>
   </section>
 
-  <!-- Footer (salin dari index.html) -->
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <img src="assets/logo-kml-white.png" alt="Logo KML" class="footer-logo">
+          <p>PT. Karya Mandiri Logistics adalah perusahaan jasa pengiriman mobil dan cargo terpercaya di Indonesia.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-col">
+          <h3>Layanan Kami</h3>
+          <ul>
+            <li><a href="#">Pengiriman Mobil</a></li>
+            <li><a href="#">Jasa Towing</a></li>
+            <li><a href="#">Car Carrier</a></li>
+            <li><a href="#">Pengiriman Barang</a></li>
+            <li><a href="#">Logistik</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-col">
+          <h3>Kontak Kami</h3>
+          <ul class="contact-info">
+            <li><i class="fas fa-map-marker-alt"></i> Jl. Raya Kendung No. 100, Surabaya</li>
+            <li><i class="fas fa-phone"></i> (031) 1234567</li>
+            <li><i class="fas fa-mobile-alt"></i> 0812-3456-7890</li>
+            <li><i class="fas fa-envelope"></i> info@kml-logistics.com</li>
+          </ul>
+        </div>
+        
+        <div class="footer-col">
+          <h3>Jam Operasional</h3>
+          <ul class="working-hours">
+            <li>Senin - Jumat: 08:00 - 17:00</li>
+            <li>Sabtu: 08:00 - 15:00</li>
+            <li>Minggu & Hari Libur: Tutup</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2023 PT. Karya Mandiri Logistics. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
 
   <script>
-    // Data tarif (contoh)
-    const tarifData = [
-      { id: 1, kota: "AMBON", tarif: "Rp20.250.000", estimasi: "14-16 HARI", keterangan: "RORO - CONTAINER" },
-      { id: 2, kota: "TERNATE", tarif: "Rp19.500.000", estimasi: "14-16 HARI", keterangan: "RORO - CONTAINER" },
-      // ... tambahkan data lainnya
-    ];
-
-    // Fungsi untuk render tabel
-    function renderTable(data) {
-      const tbody = document.querySelector('.tarif-table tbody');
-      tbody.innerHTML = '';
+    // Konfigurasi
+    const API_URL = 'https://script.google.com/macros/s/AKfycbzZuhKRS0ZffeiFU5CgItsXsMRsOpDoXNUPWqhTa2JQjV-GNN0XxEsd1Fxa7d4op6hp/exec'; // Ganti dengan URL Apps Script Anda
+    const CACHE_KEY = 'kml_tarif_cache';
+    const CACHE_EXPIRY = 30 * 60 * 1000; // 30 menit cache
+    
+    // State aplikasi
+    let allTarifData = [];
+    let filteredData = [];
+    let currentPage = 1;
+    let rowsPerPage = 10;
+    let sortColumn = 'ID';
+    let sortDirection = 'asc';
+    
+    // DOM Elements
+    const tbody = document.getElementById('tarif-data');
+    const entriesSelect = document.getElementById('entries-select');
+    const searchInput = document.getElementById('search-input');
+    const searchBtn = document.getElementById('search-btn');
+    const layananFilter = document.getElementById('layanan-filter');
+    const estimasiFilter = document.getElementById('estimasi-filter');
+    const errorMessage = document.getElementById('error-message');
+    const showingEntries = document.getElementById('showing-entries');
+    const firstPageBtn = document.getElementById('first-page');
+    const prevPageBtn = document.getElementById('prev-page');
+    const nextPageBtn = document.getElementById('next-page');
+    const lastPageBtn = document.getElementById('last-page');
+    const pageNumbers = document.getElementById('page-numbers');
+    const sortIcons = document.querySelectorAll('.sort-icon');
+    
+    // Fungsi utama untuk memuat data
+    async function loadTarifData() {
+      tbody.innerHTML = '<tr><td colspan="5" class="loading">Memuat data tarif...</td></tr>';
+      errorMessage.style.display = 'none';
       
-      data.forEach(item => {
-        tbody.innerHTML += `
-          <tr>
-            <td>${item.id}</td>
-            <td>${item.kota}</td>
-            <td>${item.tarif}</td>
-            <td>${item.estimasi}</td>
-            <td>${item.keterangan}</td>
-          </tr>
-        `;
-      });
+      try {
+        // Cek cache pertama
+        const cachedData = getCachedData();
+        if (cachedData) {
+          allTarifData = cachedData;
+          initTable();
+        }
+        
+        // Fetch data baru
+        const response = await fetch(API_URL);
+        if (!response.ok) throw new Error('Gagal memuat data');
+        
+        const data = await response.json();
+        if (data.error) throw new Error(data.error);
+        
+        // Simpan ke cache dan tampilkan
+        cacheData(data);
+        allTarifData = data;
+        initTable();
+        
+        // Auto-refresh setiap 5 menit
+        setTimeout(loadTarifData, 300000);
+      } catch (error) {
+        console.error('Error:', error);
+        showError(error.message);
+        
+        // Fallback ke cache jika ada
+        if (allTarifData.length === 0 && getCachedData()) {
+          allTarifData = getCachedData();
+          initTable();
+        }
+      }
     }
-
-    // Inisialisasi
-    document.addEventListener('DOMContentLoaded', () => {
-      renderTable(tarifData);
+    
+    // Fungsi untuk mendapatkan data dari cache
+    function getCachedData() {
+      const cached = localStorage.getItem(CACHE_KEY);
+      if (!cached) return null;
       
-      // Event listeners
-      document.getElementById('entries-select').addEventListener('change', (e) => {
-        console.log(`Menampilkan ${e.target.value} entri per halaman`);
-        // Implementasi pagination
+      const { timestamp, data } = JSON.parse(cached);
+      if (Date.now() - timestamp < CACHE_EXPIRY) {
+        return data;
+      }
+      return null;
+    }
+    
+    // Fungsi untuk menyimpan data ke cache
+    function cacheData(data) {
+      localStorage.setItem(CACHE_KEY, JSON.stringify({
+        timestamp: Date.now(),
+        data: data
+      }));
+    }
+    
+    // Fungsi untuk menampilkan error
+    function showError(message) {
+      errorMessage.textContent = `Error: ${message}`;
+      errorMessage.style.display = 'block';
+    }
+    
+    // Fungsi untuk inisialisasi tabel
+    function initTable() {
+      filteredData = [...allTarifData];
+      applyFilters();
+      updatePagination();
+      renderTable();
+    }
+    
+    // Fungsi untuk render tabel
+    function renderTable() {
+      const start = (currentPage - 1) * rowsPerPage;
+      const end = start + rowsPerPage;
+      const pageData = filteredData.slice(start, end);
+      
+      if (pageData.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="5" class="loading">Tidak ada data yang ditemukan</td></tr>';
+        return;
+      }
+      
+      tbody.innerHTML = pageData.map(item => `
+        <tr>
+          <td>${item.ID || '-'}</td>
+          <td>${item['Kota Tujuan'] || '-'}</td>
+          <td>${item.Tarif || '-'}</td>
+          <td>${item.Estimasi || '-'}</td>
+          <td>${item.Keterangan || '-'}</td>
+        </tr>
+      `).join('');
+    }
+    
+    // Fungsi untuk apply semua filter
+    function applyFilters() {
+      filteredData = [...allTarifData];
+      
+      // Filter pencarian
+      const searchTerm = searchInput.value.toLowerCase();
+      if (searchTerm) {
+        filteredData = filteredData.filter(item => 
+          (item['Kota Tujuan'] && item['Kota Tujuan'].toLowerCase().includes(searchTerm)) ||
+          (item.Keterangan && item.Keterangan.toLowerCase().includes(searchTerm))
+        );
+      }
+      
+      // Filter layanan
+      const layanan = layananFilter.value;
+      if (layanan) {
+        filteredData = filteredData.filter(item => 
+          item.Keterangan && item.Keterangan.toUpperCase().includes(layanan.toUpperCase())
+        );
+      }
+      
+      // Filter estimasi
+      const estimasi = estimasiFilter.value;
+      if (estimasi) {
+        filteredData = filteredData.filter(item => {
+          if (!item.Estimasi) return false;
+          
+          const daysMatch = item.Estimasi.match(/\d+/g);
+          if (!daysMatch) return false;
+          
+          const days = parseInt(daysMatch[0]);
+          switch(estimasi) {
+            case '1-3': return days >= 1 && days <= 3;
+            case '3-7': return days >= 3 && days <= 7;
+            case '7-14': return days >= 7 && days <= 14;
+            case '14+': return days >= 14;
+            default: return true;
+          }
+        });
+      }
+      
+      // Sorting
+      filteredData.sort((a, b) => {
+        const valA = a[sortColumn] || '';
+        const valB = b[sortColumn] || '';
+        
+        if (sortColumn === 'Tarif') {
+          const numA = parseFloat(valA.replace(/[^\d]/g, '')) || 0;
+          const numB = parseFloat(valB.replace(/[^\d]/g, '')) || 0;
+          return sortDirection === 'asc' ? numA - numB : numB - numA;
+        } else if (sortColumn === 'ID') {
+          return sortDirection === 'asc' ? valA - valB : valB - valA;
+        } else {
+          return sortDirection === 'asc' 
+            ? valA.toString().localeCompare(valB.toString()) 
+            : valB.toString().localeCompare(valA.toString());
+        }
       });
       
-      document.getElementById('search-input').addEventListener('input', (e) => {
-        const keyword = e.target.value.toLowerCase();
-        const filtered = tarifData.filter(item => 
-          item.kota.toLowerCase().includes(keyword)
-        );
-        renderTable(filtered);
+      // Reset ke halaman 1 setelah filter
+      currentPage = 1;
+    }
+    
+    // Fungsi untuk update pagination
+    function updatePagination() {
+      const totalPages = Math.ceil(filteredData.length / rowsPerPage);
+      
+      // Update tombol navigasi
+      firstPageBtn.classList.toggle('disabled', currentPage === 1);
+      prevPageBtn.classList.toggle('disabled', currentPage === 1);
+      nextPageBtn.classList.toggle('disabled', currentPage >= totalPages);
+      lastPageBtn.classList.toggle('disabled', currentPage >= totalPages);
+      
+      // Update info entri
+      const start = (currentPage - 1) * rowsPerPage + 1;
+      const end = Math.min(currentPage * rowsPerPage, filteredData.length);
+      showingEntries.textContent = `Menampilkan ${start} sampai ${end} dari ${filteredData.length} entri`;
+      
+      // Update nomor halaman
+      pageNumbers.innerHTML = '';
+      
+      const maxVisiblePages = 5;
+      let startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
+      let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
+      
+      if (endPage - startPage + 1 < maxVisiblePages) {
+        startPage = Math.max(1, endPage - maxVisiblePages + 1);
+      }
+      
+      // Tombol pertama
+      if (startPage > 1) {
+        const firstPage = document.createElement('a');
+        firstPage.href = '#';
+        firstPage.textContent = '1';
+        firstPage.addEventListener('click', (e) => {
+          e.preventDefault();
+          currentPage = 1;
+          renderTable();
+          updatePagination();
+        });
+        pageNumbers.appendChild(firstPage);
+        
+        if (startPage > 2) {
+          const ellipsis = document.createElement('span');
+          ellipsis.textContent = '...';
+          pageNumbers.appendChild(ellipsis);
+        }
+      }
+      
+      // Tombol halaman
+      for (let i = startPage; i <= endPage; i++) {
+        const pageLink = document.createElement('a');
+        pageLink.href = '#';
+        pageLink.textContent = i;
+        if (i === currentPage) {
+          pageLink.classList.add('active');
+        }
+        pageLink.addEventListener('click', (e) => {
+          e.preventDefault();
+          currentPage = i;
+          renderTable();
+          updatePagination();
+        });
+        pageNumbers.appendChild(pageLink);
+      }
+      
+      // Tombol terakhir
+      if (endPage < totalPages) {
+        if (endPage < totalPages - 1) {
+          const ellipsis = document.createElement('span');
+          ellipsis.textContent = '...';
+          pageNumbers.appendChild(ellipsis);
+        }
+        
+        const lastPage = document.createElement('a');
+        lastPage.href = '#';
+        lastPage.textContent = totalPages;
+        lastPage.addEventListener('click', (e) => {
+          e.preventDefault();
+          currentPage = totalPages;
+          renderTable();
+          updatePagination();
+        });
+        pageNumbers.appendChild(lastPage);
+      }
+    }
+    
+    // Event Listeners
+    entriesSelect.addEventListener('change', (e) => {
+      rowsPerPage = parseInt(e.target.value);
+      currentPage = 1;
+      renderTable();
+      updatePagination();
+    });
+    
+    searchBtn.addEventListener('click', () => {
+      applyFilters();
+      renderTable();
+      updatePagination();
+    });
+    
+    searchInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        applyFilters();
+        renderTable();
+        updatePagination();
+      }
+    });
+    
+    layananFilter.addEventListener('change', () => {
+      applyFilters();
+      renderTable();
+      updatePagination();
+    });
+    
+    estimasiFilter.addEventListener('change', () => {
+      applyFilters();
+      renderTable();
+      updatePagination();
+    });
+    
+    firstPageBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (currentPage > 1) {
+        currentPage = 1;
+        renderTable();
+        updatePagination();
+      }
+    });
+    
+    prevPageBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (currentPage > 1) {
+        currentPage--;
+        renderTable();
+        updatePagination();
+      }
+    });
+    
+    nextPageBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const totalPages = Math.ceil(filteredData.length / rowsPerPage);
+      if (currentPage < totalPages) {
+        currentPage++;
+        renderTable();
+        updatePagination();
+      }
+    });
+    
+    lastPageBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const totalPages = Math.ceil(filteredData.length / rowsPerPage);
+      if (currentPage < totalPages) {
+        currentPage = totalPages;
+        renderTable();
+        updatePagination();
+      }
+    });
+    
+    // Sorting
+    sortIcons.forEach(icon => {
+      icon.addEventListener('click', () => {
+        const column = icon.getAttribute('data-column');
+        
+        // Reset semua icon
+        sortIcons.forEach(i => {
+          i.classList.remove('fa-sort-up', 'fa-sort-down');
+          i.classList.add('fa-sort');
+        });
+        
+        if (sortColumn === column) {
+          // Toggle direction jika kolom sama
+          sortDirection = sortDirection === 'asc' ? 'desc' : 'asc';
+        } else {
+          // Set column baru dengan default asc
+          sortColumn = column;
+          sortDirection = 'asc';
+        }
+        
+        // Update icon
+        icon.classList.remove('fa-sort');
+        icon.classList.add(sortDirection === 'asc' ? 'fa-sort-up' : 'fa-sort-down');
+        
+        applyFilters();
+        renderTable();
+        updatePagination();
       });
     });
+    
+    // Inisialisasi saat load
+    document.addEventListener('DOMContentLoaded', () => {
+      loadTarifData();
+      
+      // Set default rows per page
+      rowsPerPage = parseInt(entriesSelect.value);
+    });
+    
+    // Toggle menu mobile
+    function toggleMenu() {
+      const navMenu = document.querySelector('.nav-menu');
+      navMenu.classList.toggle('active');
+    }
   </script>
 </body>
 </html>
