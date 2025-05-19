@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <!-- Sama seperti head di index.html -->
+  <title>Daftar Tarif Pengiriman Mobil | PT Karya Mandiri Logistic</title>
+</head>
+<body>
+  <!-- Header (salin dari index.html) -->
+  
+  <section class="tarif-section">
+    <div class="container">
+      <h2><i class="fas fa-money-bill-wave"></i> Daftar Tarif Pengiriman</h2>
+      
+      <!-- Filter & Entri -->
+      <div class="tarif-controls">
+        <div class="show-entries">
+          <span>Tampilkan</span>
+          <select id="entries-select">
+            <option value="10">10</option>
+            <option value="25">25</option>
+            <option value="30">30</option> 
+            <option value="50">50</option>
+            <option value="100">100</option>
+          </select>
+          <span>entri</span>
+        </div>
+        
+        <div class="search-box">
+          <input type="text" id="search-input" placeholder="Cari kota tujuan...">
+          <button><i class="fas fa-search"></i></button>
+        </div>
+      </div>
+      
+      <!-- Tabel Tarif -->
+      <div class="table-responsive">
+        <table class="tarif-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Kota Tujuan</th>
+              <th>Tarif</th>
+              <th>Estimasi</th>
+              <th>Keterangan</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Data akan diisi oleh JavaScript -->
+          </tbody>
+        </table>
+      </div>
+      
+      <!-- Pagination -->
+      <div class="pagination">
+        <a href="#" class="page-nav disabled"><i class="fas fa-angle-double-left"></i></a>
+        <a href="#" class="page-nav disabled"><i class="fas fa-angle-left"></i></a>
+        
+        <div class="page-numbers">
+          <a href="#" class="active">1</a>
+          <a href="#">2</a>
+          <a href="#">3</a>
+          <a href="#">4</a>
+          <span>...</span>
+          <a href="#">12</a>
+        </div>
+        
+        <a href="#" class="page-nav"><i class="fas fa-angle-right"></i></a>
+        <a href="#" class="page-nav"><i class="fas fa-angle-double-right"></i></a>
+      </div>
+      
+      <div class="showing-entries">
+        Menampilkan 1 sampai 30 dari 156 entri
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer (salin dari index.html) -->
+
+  <script>
+    // Data tarif (contoh)
+    const tarifData = [
+      { id: 1, kota: "AMBON", tarif: "Rp20.250.000", estimasi: "14-16 HARI", keterangan: "RORO - CONTAINER" },
+      { id: 2, kota: "TERNATE", tarif: "Rp19.500.000", estimasi: "14-16 HARI", keterangan: "RORO - CONTAINER" },
+      // ... tambahkan data lainnya
+    ];
+
+    // Fungsi untuk render tabel
+    function renderTable(data) {
+      const tbody = document.querySelector('.tarif-table tbody');
+      tbody.innerHTML = '';
+      
+      data.forEach(item => {
+        tbody.innerHTML += `
+          <tr>
+            <td>${item.id}</td>
+            <td>${item.kota}</td>
+            <td>${item.tarif}</td>
+            <td>${item.estimasi}</td>
+            <td>${item.keterangan}</td>
+          </tr>
+        `;
+      });
+    }
+
+    // Inisialisasi
+    document.addEventListener('DOMContentLoaded', () => {
+      renderTable(tarifData);
+      
+      // Event listeners
+      document.getElementById('entries-select').addEventListener('change', (e) => {
+        console.log(`Menampilkan ${e.target.value} entri per halaman`);
+        // Implementasi pagination
+      });
+      
+      document.getElementById('search-input').addEventListener('input', (e) => {
+        const keyword = e.target.value.toLowerCase();
+        const filtered = tarifData.filter(item => 
+          item.kota.toLowerCase().includes(keyword)
+        );
+        renderTable(filtered);
+      });
+    });
+  </script>
+</body>
+</html>

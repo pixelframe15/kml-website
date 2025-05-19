@@ -412,6 +412,136 @@ footer{text-align:center;padding:1rem;background:#222;color:#fff;font-size:.9rem
   }
 }
 
+/* === TARIF SECTION === */
+.tarif-section {
+  padding: 3rem 1rem;
+  background: #f9f9f9;
+}
+
+.tarif-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.show-entries {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.show-entries select {
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+}
+
+.search-box input {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px 0 0 4px;
+  min-width: 250px;
+}
+
+.search-box button {
+  background: #fc9031;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+.tarif-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+}
+
+.tarif-table th, 
+.tarif-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.tarif-table th {
+  background: #16486c;
+  color: white;
+  font-weight: 500;
+}
+
+.tarif-table tr:hover {
+  background: #f5f5f5;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 2rem 0;
+}
+
+.page-numbers {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.page-numbers a, 
+.page-nav {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #16486c;
+}
+
+.page-numbers a.active {
+  background: #fc9031;
+  color: white;
+  border-color: #fc9031;
+}
+
+.page-nav.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.showing-entries {
+  text-align: center;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .tarif-controls {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .search-box {
+    width: 100%;
+  }
+  
+  .search-box input {
+    min-width: unset;
+    width: 100%;
+  }
+}
 
 /* === RESPONSIVE (MOBILE & TABLET) === */
 @media (max-width: 768px) {
@@ -485,7 +615,7 @@ html{scroll-behavior:smooth}
   color: #555;
 }
 
-/* === LAYANAN KAMI (mobile) LAMA === */
+
 
 /* === ANIMASI SAAT SCROLL === */
 [data-animate] {
@@ -547,4 +677,3 @@ html {
   .dropdown:hover > a::after {
     transform: rotate(45deg);
   }
-}
