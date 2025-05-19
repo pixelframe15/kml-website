@@ -1,11 +1,80 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- Sama seperti head di index.html -->
   <title>Daftar Tarif Pengiriman Mobil | PT Karya Mandiri Logistic</title>
+  <!-- Meta SEO -->
+  <meta name="description" content="PT. Karya Mandiri Logistic adalah penyedia layanan ekspedisi dan logistik terpercaya ke seluruh Indonesia.">
+  <meta name="keywords" content="ekspedisi, cargo, logistik, pengiriman mobil, kirim barang, jasa angkut">
+  <meta name="author" content="PT. Karya Mandiri Logistics">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="PT Karya Mandiri Logistics">
+  <meta property="og:description" content="Spesialis pengiriman barang & kendaraan ke seluruh Indonesia dari Surabaya.">
+  <meta property="og:image" content="assets/logo-kml.png">
+  <meta property="og:url" content="https://kml-logistics.vercel.app/">
+
+  <!-- Styles & Icons -->
+  <link rel="icon" href="assets/favicon.ico" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
   <!-- Header (salin dari index.html) -->
+   <header class="main-header">
+  <div class="container">
+    <div class="logo-left">
+      <img src="assets/logo-kml.png" alt="Logo Desktop" class="desktop-logo" />
+      <img src="assets/logo-kml.png" alt="Logo Mobile" class="mobile-logo" />
+    </div>
+    <nav class="nav-menu">
+      <ul class="nav-links">
+        <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="#tentang"><i class="fas fa-info-circle"></i> Tentang Kami</a></li>
+        <li class="dropdown">
+  <a href="#layanan"><i class="fas fa-box"></i> Layanan <i class="fas fa-caret-down"></i></a>
+  <ul class="dropdown-menu">
+    <li class="has-submenu">Kirim Mobil
+      <ul class="dropdown-submenu">
+        <li>Kirim Mobil Via Towing</li>
+        <li>Kirim Mobil Via Car Carrier</li>
+        <li>Kirim Mobil Via Self Drive</li>
+        <li>Kirim Mobil Via Kapal Roro</li>
+      </ul>
+    </li>
+    <li class="has-submenu">Kargo
+      <ul class="dropdown-submenu">
+        <li>Kargo Jalur Darat</li>
+        <li>Kargo Jalur Udara</li>
+        <li>Kargo Jalur Laut</li>
+      </ul>
+    </li>
+    <li>Jasa Packing Barang</li>
+    <li>Jasa Sewa Container</li>
+    <li>Jasa Sewa CDD dan CDE</li>
+    <li>Jasa Kirim Alat Berat</li>
+    <li>Trucking Pindahan</li>
+    <li>Door To Door Service</li>
+    <li>Undername Service</li>
+    <li>Customs Clearance</li>
+    <li>Sea & Air Freight</li>
+  </ul>
+</li>
+
+        <li><a href="#gallery"><i class="fas fa-image"></i> Gallery</a></li>
+        <li><a href="#kontak"><i class="fas fa-envelope"></i> Kontak</a></li>
+        <li class="new-menu-item"><a href="#cek-tarif" class="nav-link"> <!-- Ganti class ke nav-link -->
+         <i class="fas fa-calculator"></i> Cek Tarif<span class="new-badge">Baru</span></a></li>
+        <li><a href="#blog"><i class="fas fa-blog"></i> Blog</a></li>
+        <li><a href="#login" class="login-link"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+      </ul>
+      <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    </nav>
+  </div>
+</header>
+
   
   <section class="tarif-section">
     <div class="container">
