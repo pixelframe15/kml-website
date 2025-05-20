@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sewa Container | PT Karya Mandiri Logistic</title>
+  <meta name="description" content="Penyewaan container 20ft/40ft dry atau reefer untuk kebutuhan logistik Anda">
+  <meta name="keywords" content="sewa container, container 20ft, container 40ft, container reefer">
+  <link rel="icon" href="../assets/favicon.ico" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+    /* Style khusus halaman layanan */
+    .layanan-detail {
+      padding: 3rem 1rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .layanan-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    
+    .layanan-header h1 {
+      color: #16486c;
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+    }
+    
+    .layanan-header .tagline {
+      color: #fc9031;
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+    
+    .layanan-content {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+    
+    .layanan-image {
+      flex: 1;
+      min-width: 300px;
+    }
+    
+    .layanan-image img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    
+    .layanan-description {
+      flex: 1;
+      min-width: 300px;
+    }
+    
+    .layanan-description h2 {
+      color: #16486c;
+      margin-top: 0;
+    }
+    
+    .layanan-features {
+      background: #f9f9f9;
+      padding: 2rem;
+      border-radius: 12px;
+      margin: 2rem 0;
+    }
+    
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+    
+    .feature-box {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .feature-box i {
+      color: #fc9031;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .cta-section {
+      text-align: center;
+      padding: 2rem;
+      background: linear-gradient(135deg, #16486c 0%, #1a5a8a 100%);
+      color: white;
+      border-radius: 12px;
+      margin: 2rem 0;
+    }
+    
+    .cta-section h2 {
+      margin-top: 0;
+    }
+    
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+    
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.8rem 1.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    
+    .cta-btn.primary {
+      background: #fc9031;
+      color: white;
+    }
+    
+    .cta-btn.secondary {
+      background: white;
+      color: #16486c;
+    }
+    
+    .cta-btn i {
+      margin-right: 0.5rem;
+    }
+    
+    @media (max-width: 768px) {
+      .layanan-header h1 {
+        font-size: 1.8rem;
+      }
+      
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="main-header">
+    <div class="container">
+      <div class="logo-left">
+        <img src="../assets/logo-kml.png" alt="Logo Desktop" class="desktop-logo" />
+        <img src="../assets/logo-kml.png" alt="Logo Mobile" class="mobile-logo" />
+      </div>
+      <nav class="nav-menu">
+        <ul class="nav-links">
+          <li><a href="../index.html"><i class="fas fa-home"></i> Home</a></li>
+          <li><a href="../index.html#tentang"><i class="fas fa-info-circle"></i> Tentang Kami</a></li>
+          <li class="dropdown">
+            <a href="../index.html#layanan"><i class="fas fa-box"></i> Layanan <i class="fas fa-caret-down"></i></a>
+            <ul class="dropdown-menu">
+              <li class="has-submenu">Kirim Mobil
+                <ul class="dropdown-submenu">
+                  <li><a href="../layanan/towing.html">Kirim Mobil Via Towing</a></li>
+                  <li><a href="../layanan/carrier.html">Kirim Mobil Via Car Carrier</a></li>
+                  <li><a href="../layanan/selfdrive.html">Kirim Mobil Via Self Drive</a></li>
+                  <li><a href="../layanan/roro.html">Kirim Mobil Via Kapal Roro</a></li>
+                </ul>
+              </li>
+              <li class="has-submenu">Kargo
+                <ul class="dropdown-submenu">
+                  <li><a href="../layanan/kargo-darat.html">Kargo Jalur Darat</a></li>
+                  <li><a href="../layanan/kargo-udara.html">Kargo Jalur Udara</a></li>
+                  <li><a href="../layanan/kargo-laut.html">Kargo Jalur Laut</a></li>
+                </ul>
+              </li>
+              <li><a href="../layanan/packing.html">Jasa Packing Barang</a></li>
+              <li><a href="../layanan/container.html">Jasa Sewa Container</a></li>
+              <li><a href="../layanan/cdd.html">Jasa Sewa CDD dan CDE</a></li>
+              <li><a href="../layanan/alatberat.html">Jasa Kirim Alat Berat</a></li>
+              <li><a href="../layanan/pindahan.html">Trucking Pindahan</a></li>
+              <li><a href="../layanan/dtd.html">Door To Door Service</a></li>
+              <li><a href="../layanan/undername.html">Undername Service</a></li>
+              <li><a href="../layanan/customs.html">Customs Clearance</a></li>
+              <li><a href="../layanan/freight.html">Sea & Air Freight</a></li>
+            </ul>
+          </li>
+          <li><a href="../index.html#gallery"><i class="fas fa-image"></i> Gallery</a></li>
+          <li><a href="../index.html#kontak"><i class="fas fa-envelope"></i> Kontak</a></li>
+          <li class="new-menu-item"><a href="../tarif.html" class="nav-link">
+            <i class="fas fa-calculator"></i> Cek Tarif<span class="new-badge">Baru</span></a></li>
+          <li><a href="../index.html#blog"><i class="fas fa-blog"></i> Blog</a></li>
+          <li><a href="#login" class="login-link"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+        </ul>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="layanan-detail">
+    <section class="layanan-header">
+      <h1>Sewa Container</h1>
+      <p class="tagline">Solusi penyimpanan dan pengiriman dengan container standar internasional</p>
+    </section>
+    
+    <section class="layanan-content">
+      <div class="layanan-image">
+        <img src="../assets/container-bg.png" alt="Sewa Container">
+      </div>
+      
+      <div class="layanan-description">
+        <h2>Layanan Sewa Container</h2>
+        <p>Kami menyediakan container berbagai ukuran dan tipe untuk kebutuhan penyimpanan barang, proyek konstruksi, maupun pengiriman via laut.</p>
+        
+        <h3>Tipe Container:</h3>
+        <ul>
+          <li><strong>Dry Container:</strong> 20ft dan 40ft standar</li>
+          <li><strong>Reefer Container:</strong> Berpendingin untuk barang perishable</li>
+          <li><strong>Open Top:</strong> Untuk barang tinggi/overheight</li>
+          <li><strong>Flat Rack:</strong> Untuk barang oversized</li>
+          <li><strong>Tank Container:</strong> Untuk cairan dan gas</li>
+        </ul>
+      </div>
+    </section>
+    
+    <section class="layanan-features">
+      <h2>Mengapa Sewa di Kami?</h2>
+      <div class="features-grid">
+        <div class="feature-box">
+          <i class="fas fa-boxes"></i>
+          <h3>Kondisi Prima</h3>
+          <p>Container baru dan terawat dengan sertifikat seaworthy.</p>
+        </div>
+        <div class="feature-box">
+          <i class="fas fa-hand-holding-usd"></i>
+          <h3>Harga Kompetitif</h3>
+          <p>Sewa harian, mingguan, atau bulanan.</p>
+        </div>
+        <div class="feature-box">
+          <i class="fas fa-truck"></i>
+          <h3>Delivery Service</h3>
+          <p>Pengantaran ke lokasi proyek.</p>
+        </div>
+        <div class="feature-box">
+          <i class="fas fa-clipboard-check"></i>
+          <h3>Dokumen Lengkap</h3>
+          <p>Custom clearance dan shipping documents.</p>
+        </div>
+      </div>
+    </section>
+    
+    <section class="cta-section">
+      <h2>Butuh Container?</h2>
+      <p>Hubungi kami untuk penawaran terbaik sewa container.</p>
+      <div class="cta-buttons">
+        <a href="https://wa.me/6287787651023" class="cta-btn primary">
+          <i class="fab fa-whatsapp"></i> Cek Ketersediaan
+        </a>
+        <a href="../tarif.html" class="cta-btn secondary">
+          <i class="fas fa-file-alt"></i> Spesifikasi Teknis
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 PT. Karya Mandiri Logistics. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.querySelector(".nav-links").classList.toggle("show");
+    }
+  </script>
+</body>
+</html>
