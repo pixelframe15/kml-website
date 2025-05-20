@@ -20,6 +20,142 @@
   <link rel="icon" href="assets/favicon.ico" />
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+ <style>
+    /* Style khusus halaman layanan */
+    .layanan-detail {
+      padding: 3rem 1rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .layanan-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    
+    .layanan-header h1 {
+      color: #16486c;
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+    }
+    
+    .layanan-header .tagline {
+      color: #fc9031;
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+    
+    .layanan-content {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+    
+    .layanan-image {
+      flex: 1;
+      min-width: 300px;
+    }
+    
+    .layanan-image img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    
+    .layanan-description {
+      flex: 1;
+      min-width: 300px;
+    }
+    
+    .layanan-description h2 {
+      color: #16486c;
+      margin-top: 0;
+    }
+    
+    .layanan-features {
+      background: #f9f9f9;
+      padding: 2rem;
+      border-radius: 12px;
+      margin: 2rem 0;
+    }
+    
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+    
+    .feature-box {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .feature-box i {
+      color: #fc9031;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .cta-section {
+      text-align: center;
+      padding: 2rem;
+      background: linear-gradient(135deg, #16486c 0%, #1a5a8a 100%);
+      color: white;
+      border-radius: 12px;
+      margin: 2rem 0;
+    }
+    
+    .cta-section h2 {
+      margin-top: 0;
+    }
+    
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+    
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.8rem 1.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    
+    .cta-btn.primary {
+      background: #fc9031;
+      color: white;
+    }
+    
+    .cta-btn.secondary {
+      background: white;
+      color: #16486c;
+    }
+    
+    .cta-btn i {
+      margin-right: 0.5rem;
+    }
+    
+    @media (max-width: 768px) {
+      .layanan-header h1 {
+        font-size: 1.8rem;
+      }
+      
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
 </head>
 <body>
 
