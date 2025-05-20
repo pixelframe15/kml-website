@@ -543,16 +543,6 @@ footer{text-align:center;padding:1rem;background:#222;color:#fff;font-size:.9rem
   }
 }
 
-/* === RESPONSIVE (MOBILE & TABLET) === */
-@media (max-width: 768px) {
-.tentang-row {flex-direction: column;text-align: center;}
-.tentang-content {padding: 0 1rem;}
-.tentang-buttons {justify-content: center;}
-.keunggulan-container {flex-direction: column;gap: 1.5rem;}
-.tentang-image{order:-1}
-
-/* === LAYANAN KAMI(desktop) LAMA === */
-
 /* === ANIMASI SAAT SCROLL === */
 [data-animate]{opacity:0;transform:translateY(20px);transition:.8s}
 [data-animate].active{opacity:1;transform:translateY(0)}
@@ -677,3 +667,13 @@ html {
   .dropdown:hover > a::after {
     transform: rotate(45deg);
   }
+
+
+
+  /* === TENTANG RESPONSIVE (MOBILE & TABLET) ERROR === */
+@media (max-width: 768px) {
+.tentang-row {flex-direction: column;text-align: center;}
+.tentang-content {padding: 0 1rem;}
+.tentang-buttons {justify-content: center;}
+.keunggulan-container {flex-direction: column;gap: 1.5rem;}
+.tentang-image{order:-1}
