@@ -677,3 +677,18 @@ html {
 .tentang-buttons {justify-content: center;}
 .keunggulan-container {flex-direction: column;gap: 1.5rem;}
 .tentang-image{order:-1}
+
+
+/* === FIX OVERFLOW MOBILE HORIZONTAL SCROLL === */
+body, html {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.main-header {
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
