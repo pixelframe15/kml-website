@@ -4,21 +4,26 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Daftar Tarif Kirim Barang | PT Karya Mandiri Logistic</title>
-  <!-- Meta SEO -->
   <meta name="description" content="Daftar tarif kirim barang via darat, laut, udara ke seluruh Indonesia. Cek harga pengiriman kargo per kg.">
   <meta name="keywords" content="tarif kirim barang, biaya kargo, harga pengiriman barang, tarif kargo darat laut udara">
   <meta name="author" content="PT. Karya Mandiri Logistics">
-
-  <!-- Styles & Icons -->
   <link rel="icon" href="assets/favicon.ico" />
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
+    /* Main Styles */
     .tarif-section {
       padding: 2rem 0;
       background-color: #f9f9f9;
     }
     
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+    
+    /* Controls */
     .tarif-controls {
       display: flex;
       justify-content: space-between;
@@ -34,6 +39,17 @@
       gap: 0.5rem;
     }
     
+    .filter-group {
+      display: flex;
+      gap: 0.5rem;
+    }
+    
+    .filter-select {
+      padding: 0.5rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+    
     .search-box {
       display: flex;
       align-items: center;
@@ -43,6 +59,7 @@
       padding: 0.5rem;
       border: 1px solid #ddd;
       border-radius: 4px 0 0 4px;
+      width: 200px;
     }
     
     .search-box button {
@@ -54,17 +71,20 @@
       cursor: pointer;
     }
     
+    /* Table */
     .table-responsive {
       overflow-x: auto;
+      margin-bottom: 1rem;
     }
     
     .tarif-table {
       width: 100%;
       border-collapse: collapse;
-      margin-bottom: 1rem;
+      min-width: 600px;
     }
     
-    .tarif-table th, .tarif-table td {
+    .tarif-table th, 
+    .tarif-table td {
       padding: 12px 15px;
       text-align: left;
       border-bottom: 1px solid #ddd;
@@ -75,44 +95,67 @@
       color: white;
       position: sticky;
       top: 0;
+      cursor: pointer;
     }
     
     .tarif-table tr:hover {
       background-color: #f5f5f5;
     }
     
+    .sort-icon {
+      margin-left: 5px;
+    }
+    
+    .price-cell {
+      font-weight: bold;
+      color: #2c3e50;
+      text-align: right;
+    }
+    
+    /* Pagination */
+    .pagination-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    
     .pagination {
       display: flex;
-      justify-content: center;
       align-items: center;
-      margin: 1.5rem 0;
       gap: 0.5rem;
     }
     
-    .page-nav, .page-numbers a {
-      padding: 0.5rem 1rem;
+    .page-nav, 
+    .page-btn {
+      padding: 0.5rem 0.8rem;
       border: 1px solid #ddd;
       border-radius: 4px;
       text-decoration: none;
       color: #333;
+      cursor: pointer;
     }
     
-    .page-nav.disabled {
+    .page-nav.disabled, 
+    .page-btn.disabled {
       opacity: 0.5;
       pointer-events: none;
     }
     
-    .page-numbers a.active {
+    .page-btn.active {
       background-color: #2c3e50;
       color: white;
       border-color: #2c3e50;
     }
     
     .showing-entries {
-      text-align: center;
       color: #666;
+      font-size: 0.9rem;
     }
     
+    /* Messages */
     .loading {
       text-align: center;
       padding: 2rem;
@@ -127,26 +170,32 @@
       background-color: #fde8e8;
       border-radius: 4px;
       margin: 1rem 0;
+      display: none;
     }
     
-    .tarif-table th:nth-child(4),
-    .tarif-table td:nth-child(4) {
-      white-space: nowrap;
-    }
-    .price-cell {
-      font-weight: bold;
-      color: #2c3e50;
-    }
-    
+    /* Responsive */
     @media (max-width: 768px) {
       .tarif-controls {
         flex-direction: column;
         align-items: stretch;
       }
       
-      .tarif-table th, .tarif-table td {
+      .filter-group {
+        flex-direction: column;
+      }
+      
+      .search-box input {
+        width: 100%;
+      }
+      
+      .tarif-table th, 
+      .tarif-table td {
         padding: 8px 10px;
         font-size: 0.9rem;
+      }
+      
+      .pagination-container {
+        flex-direction: column;
       }
     }
   </style>
@@ -171,12 +220,13 @@
           </li>
           <li><a href="index.html#gallery"><i class="fas fa-image"></i> Gallery</a></li>
           <li><a href="index.html#kontak"><i class="fas fa-envelope"></i> Kontak</a></li>
-          <li class="dropdown"><a href="#"><i class="fas fa-calculator"></i> Cek Tarif <span class="new-badge">Baru</span> <i class="fas fa-caret-down"></i></a>
-           <ul class="dropdown-menu">
-           <li><a href="tarif.html">Tarif Kirim Mobil</a></li>
-           <li><a href="tarif-kirim-barang.html">Tarif Kirim Barang</a></li>
-        </ul>
-        </li>
+          <li class="dropdown">
+            <a href="#"><i class="fas fa-calculator"></i> Cek Tarif <span class="new-badge">Baru</span> <i class="fas fa-caret-down"></i></a>
+            <ul class="dropdown-menu">
+              <li><a href="tarif.html">Tarif Kirim Mobil</a></li>
+              <li><a href="tarif-kirim-barang.html">Tarif Kirim Barang</a></li>
+            </ul>
+          </li>
           <li><a href="index.html#blog"><i class="fas fa-blog"></i> Blog</a></li>
           <li><a href="#login" class="login-link"><i class="fas fa-sign-in-alt"></i> Login</a></li>
         </ul>
@@ -189,10 +239,9 @@
   <section class="tarif-section">
     <div class="container">
       <h2><i class="fas fa-boxes"></i> Daftar Tarif Kirim Barang</h2>
-
       
       <!-- Filter Controls -->
-       <div class="tarif-controls">
+      <div class="tarif-controls">
         <div class="show-entries">
           <span>Tampilkan</span>
           <select id="entries-select">
@@ -204,7 +253,7 @@
           <span>entri</span>
         </div>
         
-       <div class="filter-group">
+        <div class="filter-group">
           <select id="provinsi-filter" class="filter-select">
             <option value="">Semua Provinsi</option>
           </select>
@@ -222,7 +271,7 @@
       </div>
       
       <!-- Error Message -->
-       <div id="error-message" class="error-message" style="display: none;"></div>
+      <div id="error-message" class="error-message"></div>
       
       <!-- Tarif Table -->
       <div class="table-responsive">
@@ -243,268 +292,369 @@
       </div>
       
       <!-- Pagination -->
-      <div class="pagination">
-        <a href="#" id="first-page" class="page-nav disabled"><i class="fas fa-angle-double-left"></i></a>
-        <a href="#" id="prev-page" class="page-nav disabled"><i class="fas fa-angle-left"></i></a>
-        <div class="page-numbers" id="page-numbers"><a href="#" class="active">1</a></div>
-        <a href="#" id="next-page" class="page-nav"><i class="fas fa-angle-right"></i></a>
-        <a href="#" id="last-page" class="page-nav"><i class="fas fa-angle-double-right"></i></a>
+      <div class="pagination-container">
+        <div class="showing-entries" id="showing-entries">Menampilkan 0 dari 0 entri</div>
+        
+        <div class="pagination">
+          <button id="first-page" class="page-nav disabled" title="Halaman Pertama">
+            <i class="fas fa-angle-double-left"></i>
+          </button>
+          <button id="prev-page" class="page-nav disabled" title="Halaman Sebelumnya">
+            <i class="fas fa-angle-left"></i>
+          </button>
+          
+          <div class="page-numbers" id="page-numbers">
+            <button class="page-btn active">1</button>
+          </div>
+          
+          <button id="next-page" class="page-nav" title="Halaman Selanjutnya">
+            <i class="fas fa-angle-right"></i>
+          </button>
+          <button id="last-page" class="page-nav" title="Halaman Terakhir">
+            <i class="fas fa-angle-double-right"></i>
+          </button>
+        </div>
       </div>
-
-      <div class="showing-entries" id="showing-entries">Menampilkan 0 dari 0 entri</div>
     </div>
   </section>
-
 
   <!-- Footer -->
   <footer>
     <p>© 2025 PT. Karya Mandiri Logistics. All Rights Reserved.</p>
   </footer>
 
-<script>
-const API_URL = 'https://script.google.com/macros/s/AKfycbycWppfuNBbnC0MBTLfPE6GQ896nJ3pbOOlgtrsJVBPS-UsSdUKNcWbRXjdFZ0-I__Y/exec';
-const CACHE_KEY = 'kml_tarif_barang_cache';
-const CACHE_EXPIRY = 30 * 60 * 1000;
-
-let allTarifData = [], filteredData = [], currentPage = 1, rowsPerPage = 10;
-let sortColumn = 'Kota', sortDirection = 'asc';
-
-const tbody = document.getElementById('tarif-data');
-const entriesSelect = document.getElementById('entries-select');
-const searchInput = document.getElementById('search-input');
-const searchBtn = document.getElementById('search-btn');
-const provinsiFilter = document.getElementById('provinsi-filter');
-const estimasiFilter = document.getElementById('estimasi-filter');
-const errorMessage = document.getElementById('error-message');
-const showingEntries = document.getElementById('showing-entries');
-const firstPageBtn = document.getElementById('first-page');
-const prevPageBtn = document.getElementById('prev-page');
-const nextPageBtn = document.getElementById('next-page');
-const lastPageBtn = document.getElementById('last-page');
-const pageNumbers = document.getElementById('page-numbers');
-const sortIcons = document.querySelectorAll('.sort-icon');
-
-function formatRupiah(value) {
-  const number = parseInt(value.toString().replace(/[^\d]/g, '')) || 0;
-  return 'Rp ' + number.toLocaleString('id-ID');
-}
-
-function getCachedData() {
-  const cached = localStorage.getItem(CACHE_KEY);
-  if (!cached) return null;
-  const { timestamp, data } = JSON.parse(cached);
-  return (Date.now() - timestamp < CACHE_EXPIRY) ? data : null;
-}
-
-function cacheData(data) {
-  localStorage.setItem(CACHE_KEY, JSON.stringify({ timestamp: Date.now(), data }));
-}
-
-function showError(message) {
-  errorMessage.textContent = `Error: ${message}`;
-  errorMessage.style.display = 'block';
-}
-
-function populateProvinsiFilter() {
-  const provinsiList = [...new Set(allTarifData.map(item => item.Provinsi))].filter(Boolean);
-  provinsiFilter.innerHTML = '<option value="">Semua Provinsi</option>';
-  provinsiList.sort().forEach(provinsi => {
-    const option = document.createElement('option');
-    option.value = provinsi;
-    option.textContent = provinsi;
-    provinsiFilter.appendChild(option);
-  });
-}
-
-function applyFilters() {
-  filteredData = [...allTarifData];
-  const searchTerm = searchInput.value.toLowerCase();
-  if (searchTerm) {
-    filteredData = filteredData.filter(item =>
-      (item.Kota && item.Kota.toLowerCase().includes(searchTerm)) ||
-      (item.Provinsi && item.Provinsi.toLowerCase().includes(searchTerm))
-    );
-  }
-  const provinsi = provinsiFilter.value;
-  if (provinsi) {
-    filteredData = filteredData.filter(item => item.Provinsi === provinsi);
-  }
-  const estimasi = estimasiFilter.value;
-if (estimasi) {
-  const extractFirstNumber = (text) => parseInt((text || '').match(/\d+/)?.[0] || '0');
-  filteredData.sort((a, b) => {
-    const daysA = extractFirstNumber(a.Estimasi);
-    const daysB = extractFirstNumber(b.Estimasi);
-    return estimasi === 'asc' ? daysA - daysB : daysB - daysA;
-  });
-}
-  filteredData.sort((a, b) => {
-    const valA = a[sortColumn] || '', valB = b[sortColumn] || '';
-    if (sortColumn === 'Tarif') {
-      const numA = parseFloat(valA.replace(/[^\d]/g, '')) || 0;
-      const numB = parseFloat(valB.replace(/[^\d]/g, '')) || 0;
-      return sortDirection === 'asc' ? numA - numB : numB - numA;
+  <script>
+    // Configuration
+    const API_URL = 'https://script.google.com/macros/s/AKfycbycWppfuNBbnC0MBTLfPE6GQ896nJ3pbOOlgtrsJVBPS-UsSdUKNcWbRXjdFZ0-I__Y/exec';
+    const CACHE_KEY = 'kml_tarif_barang_cache';
+    const CACHE_EXPIRY = 30 * 60 * 1000; // 30 minutes
+    
+    // DOM Elements
+    const tbody = document.getElementById('tarif-data');
+    const entriesSelect = document.getElementById('entries-select');
+    const searchInput = document.getElementById('search-input');
+    const searchBtn = document.getElementById('search-btn');
+    const provinsiFilter = document.getElementById('provinsi-filter');
+    const estimasiFilter = document.getElementById('estimasi-filter');
+    const errorMessage = document.getElementById('error-message');
+    const showingEntries = document.getElementById('showing-entries');
+    const firstPageBtn = document.getElementById('first-page');
+    const prevPageBtn = document.getElementById('prev-page');
+    const nextPageBtn = document.getElementById('next-page');
+    const lastPageBtn = document.getElementById('last-page');
+    const pageNumbers = document.getElementById('page-numbers');
+    const sortIcons = document.querySelectorAll('.sort-icon');
+    
+    // State
+    let allTarifData = [];
+    let filteredData = [];
+    let currentPage = 1;
+    let rowsPerPage = parseInt(entriesSelect.value);
+    let sortColumn = 'Kota';
+    let sortDirection = 'asc';
+    
+    // Helper Functions
+    function formatRupiah(value) {
+      const number = parseInt(value.toString().replace(/[^\d]/g, '')) || 0;
+      return 'Rp ' + number.toLocaleString('id-ID');
     }
-    return sortDirection === 'asc' ? valA.localeCompare(valB) : valB.localeCompare(valA);
-  });
-  currentPage = 1;
-}
-
-function renderTable() {
-  const start = (currentPage - 1) * rowsPerPage;
-  const end = start + rowsPerPage;
-  const pageData = filteredData.slice(start, end);
-
-  if (pageData.length === 0) {
-    tbody.innerHTML = '<tr><td colspan="5" class="loading">Tidak ada data yang ditemukan</td></tr>';
-    return;
-  }
-
-  tbody.innerHTML = pageData.map(item => `
-    <tr>
-      <td>${item.Kota || '-'}</td>
-      <td>${item.Provinsi || '-'}</td>
-      <td class="price-cell" style="text-align:right">${formatRupiah(item.Tarif || '')}</td>
-      <td>${item.Estimasi || '-'}</td>
-      <td>${item.Keterangan || '-'}</td>
-    </tr>
-  `).join('');
-}
-
-function updatePagination() {
-  const totalPages = Math.ceil(filteredData.length / rowsPerPage);
-  const pageNumbersHTML = [];
-  for (let i = 1; i <= totalPages; i++) {
-    pageNumbersHTML.push(`<a href="#" class="${i === currentPage ? 'active' : ''}" data-page="${i}">${i}</a>`);
-  }
-  pageNumbers.innerHTML = pageNumbersHTML.join('');
-  firstPageBtn.classList.toggle('disabled', currentPage === 1);
-  prevPageBtn.classList.toggle('disabled', currentPage === 1);
-  nextPageBtn.classList.toggle('disabled', currentPage === totalPages);
-  lastPageBtn.classList.toggle('disabled', currentPage === totalPages);
-  const startEntry = (currentPage - 1) * rowsPerPage + 1;
-  const endEntry = Math.min(currentPage * rowsPerPage, filteredData.length);
-  showingEntries.textContent = `Menampilkan ${startEntry} - ${endEntry} dari ${filteredData.length} entri`;
-}
-
-function initTable() {
-  applyFilters();
-  updatePagination();
-  renderTable();
-}
-
-function registerEventListeners() {
-  entriesSelect.addEventListener('change', () => {
-    rowsPerPage = parseInt(entriesSelect.value);
-    currentPage = 1;
-    renderTable();
-    updatePagination();
-  });
-
-  provinsiFilter.addEventListener('change', () => {
-    applyFilters();
-    renderTable();
-    updatePagination();
-  });
-
-  estimasiFilter.addEventListener('change', () => {
-    applyFilters();
-    renderTable();
-    updatePagination();
-  });
-
-  searchBtn.addEventListener('click', () => {
-    applyFilters();
-    renderTable();
-    updatePagination();
-  });
-
-  searchInput.addEventListener('keyup', (e) => {
-    if (e.key === 'Enter') {
+    
+    function getCachedData() {
+      const cached = localStorage.getItem(CACHE_KEY);
+      if (!cached) return null;
+      
+      const { timestamp, data } = JSON.parse(cached);
+      return (Date.now() - timestamp < CACHE_EXPIRY) ? data : null;
+    }
+    
+    function cacheData(data) {
+      localStorage.setItem(CACHE_KEY, JSON.stringify({ 
+        timestamp: Date.now(), 
+        data 
+      }));
+    }
+    
+    function showError(message) {
+      errorMessage.textContent = `Error: ${message}`;
+      errorMessage.style.display = 'block';
+    }
+    
+    function hideError() {
+      errorMessage.style.display = 'none';
+    }
+    
+    function populateProvinsiFilter() {
+      const provinsiList = [...new Set(allTarifData.map(item => item.Provinsi))]
+        .filter(Boolean)
+        .sort();
+      
+      provinsiFilter.innerHTML = '<option value="">Semua Provinsi</option>';
+      
+      provinsiList.forEach(provinsi => {
+        const option = document.createElement('option');
+        option.value = provinsi;
+        option.textContent = provinsi;
+        provinsiFilter.appendChild(option);
+      });
+    }
+    
+    // Data Processing
+    function applyFilters() {
+      filteredData = [...allTarifData];
+      
+      // Apply search filter
+      const searchTerm = searchInput.value.toLowerCase();
+      if (searchTerm) {
+        filteredData = filteredData.filter(item =>
+          (item.Kota && item.Kota.toLowerCase().includes(searchTerm)) ||
+          (item.Provinsi && item.Provinsi.toLowerCase().includes(searchTerm))
+        );
+      }
+      
+      // Apply province filter
+      const provinsi = provinsiFilter.value;
+      if (provinsi) {
+        filteredData = filteredData.filter(item => item.Provinsi === provinsi);
+      }
+      
+      // Apply sorting
+      sortData();
+    }
+    
+    function sortData() {
+      filteredData.sort((a, b) => {
+        const valA = a[sortColumn] || '';
+        const valB = b[sortColumn] || '';
+        
+        if (sortColumn === 'Tarif') {
+          const numA = parseFloat(valA.replace(/[^\d]/g, '')) || 0;
+          const numB = parseFloat(valB.replace(/[^\d]/g, '')) || 0;
+          return sortDirection === 'asc' ? numA - numB : numB - numA;
+        }
+        
+        if (sortColumn === 'Estimasi') {
+          const extractFirstNumber = (text) => parseInt((text || '').match(/\d+/)?.[0] || '0');
+          const daysA = extractFirstNumber(valA);
+          const daysB = extractFirstNumber(valB);
+          return sortDirection === 'asc' ? daysA - daysB : daysB - daysA;
+        }
+        
+        return sortDirection === 'asc' 
+          ? valA.localeCompare(valB) 
+          : valB.localeCompare(valA);
+      });
+    }
+    
+    // Rendering
+    function renderTable() {
+      const start = (currentPage - 1) * rowsPerPage;
+      const end = start + rowsPerPage;
+      const pageData = filteredData.slice(start, end);
+      
+      if (pageData.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="5" class="loading">Tidak ada data yang ditemukan</td></tr>';
+        return;
+      }
+      
+      tbody.innerHTML = pageData.map(item => `
+        <tr>
+          <td>${item.Kota || '-'}</td>
+          <td>${item.Provinsi || '-'}</td>
+          <td class="price-cell">${formatRupiah(item.Tarif || '')}</td>
+          <td>${item.Estimasi || '-'}</td>
+          <td>${item.Keterangan || '-'}</td>
+        </tr>
+      `).join('');
+    }
+    
+    function updatePagination() {
+      const totalPages = Math.ceil(filteredData.length / rowsPerPage);
+      const maxVisiblePages = 5; // Maximum number of page buttons to show
+      const halfMax = Math.floor(maxVisiblePages / 2);
+      
+      let startPage = Math.max(1, currentPage - halfMax);
+      let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
+      
+      // Adjust if we're at the end
+      if (endPage - startPage + 1 < maxVisiblePages) {
+        startPage = Math.max(1, endPage - maxVisiblePages + 1);
+      }
+      
+      // Clear existing buttons
+      pageNumbers.innerHTML = '';
+      
+      // Add first page and ellipsis if needed
+      if (startPage > 1) {
+        addPageButton(1);
+        if (startPage > 2) {
+          addEllipsis();
+        }
+      }
+      
+      // Add page buttons
+      for (let i = startPage; i <= endPage; i++) {
+        addPageButton(i);
+      }
+      
+      // Add last page and ellipsis if needed
+      if (endPage < totalPages) {
+        if (endPage < totalPages - 1) {
+          addEllipsis();
+        }
+        addPageButton(totalPages);
+      }
+      
+      // Update navigation buttons
+      firstPageBtn.classList.toggle('disabled', currentPage === 1);
+      prevPageBtn.classList.toggle('disabled', currentPage === 1);
+      nextPageBtn.classList.toggle('disabled', currentPage === totalPages || totalPages === 0);
+      lastPageBtn.classList.toggle('disabled', currentPage === totalPages || totalPages === 0);
+      
+      // Update showing entries text
+      const startEntry = filteredData.length === 0 ? 0 : (currentPage - 1) * rowsPerPage + 1;
+      const endEntry = Math.min(currentPage * rowsPerPage, filteredData.length);
+      showingEntries.textContent = `Menampilkan ${startEntry}-${endEntry} dari ${filteredData.length} entri`;
+    }
+    
+    function addPageButton(page) {
+      const button = document.createElement('button');
+      button.className = `page-btn ${page === currentPage ? 'active' : ''}`;
+      button.textContent = page;
+      button.addEventListener('click', (e) => {
+        e.preventDefault();
+        goToPage(page);
+      });
+      pageNumbers.appendChild(button);
+    }
+    
+    function addEllipsis() {
+      const span = document.createElement('span');
+      span.className = 'ellipsis';
+      span.textContent = '...';
+      pageNumbers.appendChild(span);
+    }
+    
+    function goToPage(page) {
+      currentPage = page;
+      renderTable();
+      updatePagination();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    
+    // Data Loading
+    async function loadTarifData() {
+      tbody.innerHTML = '<tr><td colspan="5" class="loading">Memuat data tarif...</td></tr>';
+      hideError();
+      
+      try {
+        // Try to get cached data first
+        const cachedData = getCachedData();
+        if (cachedData) {
+          allTarifData = cachedData;
+          populateProvinsiFilter();
+          initTable();
+          return;
+        }
+        
+        // Fetch fresh data if no cache
+        const response = await fetch(API_URL);
+        if (!response.ok) throw new Error('Gagal memuat data dari server');
+        
+        const data = await response.json();
+        const validatedData = data.map(item => ({
+          Kota: item.Kota || item.kota || item.Tujuan || item.tujuan || '',
+          Provinsi: item.Provinsi || item.provinsi || '',
+          Tarif: item.Tarif || item.tarif || '',
+          Estimasi: item.Estimasi || item.estimasi || '',
+          Keterangan: item.Keterangan || item.keterangan || ''
+        }));
+        
+        cacheData(validatedData);
+        allTarifData = validatedData;
+        populateProvinsiFilter();
+        initTable();
+      } catch (error) {
+        console.error('Error:', error);
+        showError(error.message);
+      }
+    }
+    
+    function initTable() {
       applyFilters();
       renderTable();
       updatePagination();
     }
-  });
-
-  pageNumbers.addEventListener('click', (e) => {
-    if (e.target.tagName === 'A' && !e.target.classList.contains('active')) {
-      e.preventDefault();
-      currentPage = parseInt(e.target.dataset.page);
-      renderTable();
-      updatePagination();
+    
+    // Event Listeners
+    function setupEventListeners() {
+      // Entries per page change
+      entriesSelect.addEventListener('change', () => {
+        rowsPerPage = parseInt(entriesSelect.value);
+        currentPage = 1;
+        initTable();
+      });
+      
+      // Filter changes
+      provinsiFilter.addEventListener('change', initTable);
+      estimasiFilter.addEventListener('change', initTable);
+      
+      // Search
+      searchBtn.addEventListener('click', initTable);
+      searchInput.addEventListener('keyup', (e) => {
+        if (e.key === 'Enter') initTable();
+      });
+      
+      // Pagination navigation
+      firstPageBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (currentPage !== 1) goToPage(1);
+      });
+      
+      prevPageBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (currentPage > 1) goToPage(currentPage - 1);
+      });
+      
+      nextPageBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const totalPages = Math.ceil(filteredData.length / rowsPerPage);
+        if (currentPage < totalPages) goToPage(currentPage + 1);
+      });
+      
+      lastPageBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const totalPages = Math.ceil(filteredData.length / rowsPerPage);
+        if (currentPage !== totalPages) goToPage(totalPages);
+      });
+      
+      // Column sorting
+      sortIcons.forEach(icon => {
+        icon.addEventListener('click', () => {
+          const column = icon.dataset.column;
+          
+          if (sortColumn === column) {
+            sortDirection = sortDirection === 'asc' ? 'desc' : 'asc';
+          } else {
+            sortColumn = column;
+            sortDirection = 'asc';
+          }
+          
+          // Update icon states
+          sortIcons.forEach(i => {
+            i.className = 'fas fa-sort sort-icon';
+          });
+          icon.className = `fas fa-sort-${sortDirection === 'asc' ? 'up' : 'down'} sort-icon`;
+          
+          initTable();
+        });
+      });
     }
-  });
-
-  firstPageBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    if (currentPage !== 1) {
-      currentPage = 1;
-      renderTable();
-      updatePagination();
-    }
-  });
-
-  prevPageBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    if (currentPage > 1) {
-      currentPage--;
-      renderTable();
-      updatePagination();
-    }
-  });
-
-  nextPageBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    const totalPages = Math.ceil(filteredData.length / rowsPerPage);
-    if (currentPage < totalPages) {
-      currentPage++;
-      renderTable();
-      updatePagination();
-    }
-  });
-
-  lastPageBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    const totalPages = Math.ceil(filteredData.length / rowsPerPage);
-    if (currentPage !== totalPages) {
-      currentPage = totalPages;
-      renderTable();
-      updatePagination();
-    }
-  });
-}
-
-async function loadTarifData() {
-  tbody.innerHTML = '<tr><td colspan="5" class="loading">Memuat data tarif...</td></tr>';
-  errorMessage.style.display = 'none';
-
-  try {
-    const response = await fetch(API_URL);
-    if (!response.ok) throw new Error('Gagal memuat data dari server');
-    const data = await response.json();
-    const validatedData = data.map(item => ({
-      Kota: item.Kota || item.kota || item.Tujuan || item.tujuan || '',
-      Provinsi: item.Provinsi || item.provinsi || '',
-      Tarif: item.Tarif || item.tarif || '',
-      Estimasi: item.Estimasi || item.estimasi || '',
-      Keterangan: item.Keterangan || item.keterangan || ''
-    }));
-    cacheData(validatedData);
-    allTarifData = validatedData;
-    populateProvinsiFilter();
-    initTable();
-  } catch (error) {
-    console.error('Error:', error);
-    showError(error.message);
-  }
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  rowsPerPage = parseInt(entriesSelect.value);
-  loadTarifData();
-  registerEventListeners();
-});
-</script>
+    
+    // Initialize
+    document.addEventListener('DOMContentLoaded', () => {
+      setupEventListeners();
+      loadTarifData();
+    });
+  </script>
 </body>
 </html>
