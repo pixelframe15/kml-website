@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daftar Tarif Kirim Barang | PT Karya Mandiri Logistic</title>
+  <!-- Meta SEO -->
+  <meta name="description" content="Daftar tarif kirim barang via darat, laut, udara ke seluruh Indonesia. Cek harga pengiriman kargo per kg.">
+  <meta name="keywords" content="tarif kirim barang, biaya kargo, harga pengiriman barang, tarif kargo darat laut udara">
+  <meta name="author" content="PT. Karya Mandiri Logistics">
+
+  <!-- Styles & Icons -->
+  <link rel="icon" href="assets/favicon.ico" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    /* [CSS dari file tarif.html bisa disalin di sini] */
+    .tarif-section {
+      padding: 2rem 0;
+      background-color: #f9f9f9;
+    }
+    
+    .tarif-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    
+    .show-entries {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .search-box {
+      display: flex;
+      align-items: center;
+    }
+    
+    .search-box input {
+      padding: 0.5rem;
+      border: 1px solid #ddd;
+      border-radius: 4px 0 0 4px;
+    }
+    
+    .search-box button {
+      padding: 0.5rem 1rem;
+      background-color: #2c3e50;
+      color: white;
+      border: none;
+      border-radius: 0 4px 4px 0;
+      cursor: pointer;
+    }
+    
+    .table-responsive {
+      overflow-x: auto;
+    }
+    
+    .tarif-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 1rem;
+    }
+    
+    .tarif-table th, .tarif-table td {
+      padding: 12px 15px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    
+    .tarif-table th {
+      background-color: #2c3e50;
+      color: white;
+      position: sticky;
+      top: 0;
+    }
+    
+    .tarif-table tr:hover {
+      background-color: #f5f5f5;
+    }
+    
+    .pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 1.5rem 0;
+      gap: 0.5rem;
+    }
+    
+    .page-nav, .page-numbers a {
+      padding: 0.5rem 1rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      text-decoration: none;
+      color: #333;
+    }
+    
+    .page-nav.disabled {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+    
+    .page-numbers a.active {
+      background-color: #2c3e50;
+      color: white;
+      border-color: #2c3e50;
+    }
+    
+    .showing-entries {
+      text-align: center;
+      color: #666;
+    }
+    
+    .loading {
+      text-align: center;
+      padding: 2rem;
+      font-style: italic;
+      color: #666;
+    }
+    
+    .error-message {
+      color: #e74c3c;
+      text-align: center;
+      padding: 1rem;
+      background-color: #fde8e8;
+      border-radius: 4px;
+      margin: 1rem 0;
+    }
+    
+    @media (max-width: 768px) {
+      .tarif-controls {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      
+      .tarif-table th, .tarif-table td {
+        padding: 8px 10px;
+        font-size: 0.9rem;
+      }
+    }
+  
+    /* Tambahkan style khusus untuk halaman kirim barang */
+    .tarif-table th:nth-child(4),
+    .tarif-table td:nth-child(4) {
+      white-space: nowrap;
+    }
+    .price-cell {
+      font-weight: bold;
+      color: #2c3e50;
+    }
+  </style>
+</head>
+<body>
+  <header class="main-header">
+    <div class="container">
+      <div class="logo-left">
+        <img src="assets/logo-kml.png" alt="Logo Desktop" class="desktop-logo" />
+        <img src="assets/logo-kml.png" alt="Logo Mobile" class="mobile-logo" />
+      </div>
+      <nav class="nav-menu">
+        <ul class="nav-links">
+          <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+          <li><a href="index.html#tentang"><i class="fas fa-info-circle"></i> Tentang Kami</a></li>
+          <li class="dropdown">
+            <a href="index.html#layanan"><i class="fas fa-box"></i> Layanan <i class="fas fa-caret-down"></i></a>
+            <ul class="dropdown-menu">
+              <li class="has-submenu">Kirim Mobil
+                <ul class="dropdown-submenu">
+                  <li><a href="../layanan/towing.html">Kirim Mobil Via Towing</a></li>
+                  <li><a href="../layanan/carrier.html">Kirim Mobil Via Car Carrier</a></li>
+                  <li><a href="../layanan/selfdrive.html">Kirim Mobil Via Self Drive</a></li>
+                  <li><a href="../layanan/roro.html">Kirim Mobil Via Kapal Roro</a></li>
+                </ul>
+              </li>
+              <li class="has-submenu">Kargo
+                <ul class="dropdown-submenu">
+                  <li><a href="../layanan/kargo-darat.html">Kargo Jalur Darat</a></li>
+                  <li><a href="../layanan/kargo-udara.html">Kargo Jalur Udara</a></li>
+                  <li><a href="../layanan/kargo-laut.html">Kargo Jalur Laut</a></li>
+                </ul>
+              </li>
+              <li><a href="../layanan/packing.html">Jasa Packing Barang</a></li>
+              <li><a href="../layanan/container.html">Jasa Sewa Container</a></li>
+              <li><a href="../layanan/cdd.html">Jasa Sewa CDD dan CDE</a></li>
+              <li><a href="../layanan/alatberat.html">Jasa Kirim Alat Berat</a></li>
+              <li><a href="../layanan/pindahan.html">Trucking Pindahan</a></li>
+              <li><a href="../layanan/dtd.html">Door To Door Service</a></li>
+              <li><a href="../layanan/undername.html">Undername Service</a></li>
+              <li><a href="../layanan/customs.html">Customs Clearance</a></li>
+              <li><a href="../layanan/freight.html">Sea & Air Freight</a></li>
+            </ul>
+          </li>
+          <li><a href="index.html#gallery"><i class="fas fa-image"></i> Gallery</a></li>
+          <li><a href="index.html#kontak"><i class="fas fa-envelope"></i> Kontak</a></li>
+          <li class="new-menu-item"><a href="tarif.html" class="nav-link active">
+            <i class="fas fa-calculator"></i> Cek Tarif<span class="new-badge">Baru</span></a></li>
+          <li><a href="index.html#blog"><i class="fas fa-blog"></i> Blog</a></li>
+          <li><a href="#login" class="login-link"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+        </ul>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+      </nav>
+    </div>
+  </header>
+  <header class="main-header">
+    <!-- ... konten header ... -->
+  </header>
+
+  <section class="tarif-section">
+    <div class="container">
+      <h2><i class="fas fa-boxes"></i> Daftar Tarif Kirim Barang</h2>
+      
+      <!-- Filter & Entri -->
+      <div class="tarif-controls">
+        <div class="show-entries">
+          <span>Tampilkan</span>
+          <select id="entries-select">
+            <option value="10">10</option>
+            <option value="25">25</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+          </select>
+          <span>entri</span>
+        </div>
+        
+        <div class="filter-group">
+          <select id="provinsi-filter" class="filter-select">
+            <option value="">Semua Provinsi</option>
+            <!-- Opsi provinsi akan diisi oleh JavaScript -->
+          </select>
+          
+          <select id="keterangan-filter" class="filter-select">
+            <option value="">Semua Jenis</option>
+            <option value="TRUCK">Truck</option>
+            <option value="KAPAL">Kapal</option>
+            <option value="PELNI">Pelni</option>
+            <option value="KARGO">Kargo</option>
+          </select>
+          
+          <select id="estimasi-filter" class="filter-select">
+            <option value="">Urutkan Estimasi</option>
+            <option value="asc">Tercepat</option>
+            <option value="desc">Terlama</option>
+          </select>
+        </div>
+        
+        <div class="search-box">
+          <input type="text" id="search-input" placeholder="Cari kota/kabupaten...">
+          <button id="search-btn"><i class="fas fa-search"></i></button>
+        </div>
+      </div>
+      
+      <!-- Pesan Error -->
+      <div id="error-message" class="error-message" style="display: none;"></div>
+      
+      <!-- Tabel Tarif -->
+      <div class="table-responsive">
+        <table class="tarif-table">
+          <thead>
+            <tr>
+              <th>Kota/Kabupaten <i class="fas fa-sort sort-icon" data-column="Kota"></i></th>
+              <th>Provinsi <i class="fas fa-sort sort-icon" data-column="Provinsi"></i></th>
+              <th>Jenis <i class="fas fa-sort sort-icon" data-column="Jenis"></i></th>
+              <th>Tarif/kg <i class="fas fa-sort sort-icon" data-column="Tarif"></i></th>
+              <th>Estimasi <i class="fas fa-sort sort-icon" data-column="Estimasi"></i></th>
+              <th>Keterangan <i class="fas fa-sort sort-icon" data-column="Keterangan"></i></th>
+            </tr>
+          </thead>
+          <tbody id="tarif-data">
+            <tr>
+              <td colspan="6" class="loading">Memuat data tarif...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <!-- Pagination -->
+      <div class="pagination">
+        <a href="#" id="first-page" class="page-nav disabled"><i class="fas fa-angle-double-left"></i></a>
+        <a href="#" id="prev-page" class="page-nav disabled"><i class="fas fa-angle-left"></i></a>
+        
+        <div class="page-numbers" id="page-numbers">
+          <a href="#" class="active">1</a>
+        </div>
+        
+        <a href="#" id="next-page" class="page-nav"><i class="fas fa-angle-right"></i></a>
+        <a href="#" id="last-page" class="page-nav"><i class="fas fa-angle-double-right"></i></a>
+      </div>
+      
+      <div class="showing-entries" id="showing-entries">
+        Menampilkan 0 dari 0 entri
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 PT. Karya Mandiri Logistics. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    // Konfigurasi
+    const API_URL = 'https://script.googleusercontent.com/macros/echo?user_content_key=AehSKLioprto0ceMRplXIj0ScI7jyoeih86UuElNQIx0p8mGiya49TOWUwAqbKxpGWXJLI3C-GFibznZJQ3i_AIarVdDCYbLOLSyxWOdpvcF94sPGBYhWqChuNmMtj-xfm_KcWLPYJbGhqn7mKVrHvwkb0lHMbtD_OzxoWhGbYNq6m6E_pehZ8tSSBiSf0uGngsSIt7cpzFehnnImwMAe7LTFoPhIM2CkerEkf34Ll4Ao5y7QmJuS3H-UwFo31fCfIjcqKStzkCvDQc21Pb-j_HINwi6DL7CIg&lib=MjvGcso2y3ssC3VdG489qbLUzqUJ3nvNA';
+    const CACHE_KEY = 'kml_tarif_barang_cache';
+    const CACHE_EXPIRY = 30 * 60 * 1000; // 30 menit cache
+    
+    // State aplikasi
+    let allTarifData = [];
+    let filteredData = [];
+    let currentPage = 1;
+    let rowsPerPage = 10;
+    let sortColumn = 'Kota';
+    let sortDirection = 'asc';
+    
+    // DOM Elements
+    const tbody = document.getElementById('tarif-data');
+    const entriesSelect = document.getElementById('entries-select');
+    const searchInput = document.getElementById('search-input');
+    const searchBtn = document.getElementById('search-btn');
+    const provinsiFilter = document.getElementById('provinsi-filter');
+    const keteranganFilter = document.getElementById('keterangan-filter');
+    const estimasiFilter = document.getElementById('estimasi-filter');
+    const errorMessage = document.getElementById('error-message');
+    const showingEntries = document.getElementById('showing-entries');
+    const firstPageBtn = document.getElementById('first-page');
+    const prevPageBtn = document.getElementById('prev-page');
+    const nextPageBtn = document.getElementById('next-page');
+    const lastPageBtn = document.getElementById('last-page');
+    const pageNumbers = document.getElementById('page-numbers');
+    const sortIcons = document.querySelectorAll('.sort-icon');
+    
+    // Fungsi utama untuk memuat data
+    async function loadTarifData() {
+      tbody.innerHTML = '<tr><td colspan="6" class="loading">Memuat data tarif...</td></tr>';
+      errorMessage.style.display = 'none';
+      
+      try {
+        // Cek cache pertama
+        const cachedData = getCachedData();
+        if (cachedData) {
+          allTarifData = cachedData;
+          initTable();
+          populateProvinsiFilter();
+        }
+        
+        // Fetch data baru
+        const response = await fetch(API_URL);
+        if (!response.ok) throw new Error('Gagal memuat data');
+        
+        const data = await response.json();
+        if (data.error) throw new Error(data.error);
+        
+        // Simpan ke cache dan tampilkan
+        cacheData(data);
+        allTarifData = data;
+        initTable();
+        populateProvinsiFilter();
+        
+        // Auto-refresh setiap 5 menit
+        setTimeout(loadTarifData, 300000);
+      } catch (error) {
+        console.error('Error:', error);
+        showError(error.message);
+        
+        // Fallback ke cache jika ada
+        if (allTarifData.length === 0 && getCachedData()) {
+          allTarifData = getCachedData();
+          initTable();
+          populateProvinsiFilter();
+        }
+      }
+    }
+
+    // Fungsi untuk mengisi dropdown provinsi
+    function populateProvinsiFilter() {
+      const provinsiList = [...new Set(allTarifData.map(item => item.Provinsi))].filter(Boolean);
+      provinsiFilter.innerHTML = '<option value="">Semua Provinsi</option>';
+      
+      provinsiList.sort().forEach(provinsi => {
+        const option = document.createElement('option');
+        option.value = provinsi;
+        option.textContent = provinsi;
+        provinsiFilter.appendChild(option);
+      });
+    }
+    
+    // [Fungsi-fungsi lainnya seperti getCachedData(), cacheData(), showError(), initTable(), 
+    // renderTable(), applyFilters(), updatePagination() bisa disalin dari file tarif.html
+    // dengan penyesuaian untuk kolom-kolom baru]
+    
+    // Penyesuaian applyFilters() untuk fitur baru
+    function applyFilters() {
+      filteredData = [...allTarifData];
+      
+      // Filter pencarian
+      const searchTerm = searchInput.value.toLowerCase();
+      if (searchTerm) {
+        filteredData = filteredData.filter(item => 
+          (item.Kota && item.Kota.toLowerCase().includes(searchTerm)) ||
+          (item.Provinsi && item.Provinsi.toLowerCase().includes(searchTerm))
+        );
+      }
+      
+      // Filter provinsi
+      const provinsi = provinsiFilter.value;
+      if (provinsi) {
+        filteredData = filteredData.filter(item => 
+          item.Provinsi && item.Provinsi === provinsi
+        );
+      }
+      
+      // Filter keterangan
+      const keterangan = keteranganFilter.value;
+      if (keterangan) {
+        filteredData = filteredData.filter(item => 
+          item.Jenis && item.Jenis.toUpperCase().includes(keterangan)
+        );
+      }
+      
+      // Filter estimasi
+      const estimasi = estimasiFilter.value;
+      if (estimasi) {
+        filteredData.sort((a, b) => {
+          const daysA = parseInt(a.Estimasi) || 0;
+          const daysB = parseInt(b.Estimasi) || 0;
+          return estimasi === 'asc' ? daysA - daysB : daysB - daysA;
+        });
+      }
+      
+      // Sorting
+      filteredData.sort((a, b) => {
+        const valA = a[sortColumn] || '';
+        const valB = b[sortColumn] || '';
+        
+        if (sortColumn === 'Tarif') {
+          const numA = parseFloat(valA.replace(/[^\d]/g, '')) || 0;
+          const numB = parseFloat(valB.replace(/[^\d]/g, '')) || 0;
+          return sortDirection === 'asc' ? numA - numB : numB - numA;
+        } else {
+          return sortDirection === 'asc' 
+            ? valA.toString().localeCompare(valB.toString()) 
+            : valB.toString().localeCompare(valA.toString());
+        }
+      });
+      
+      currentPage = 1;
+    }
+
+    // Penyesuaian renderTable() untuk format data baru
+    function renderTable() {
+      const start = (currentPage - 1) * rowsPerPage;
+      const end = start + rowsPerPage;
+      const pageData = filteredData.slice(start, end);
+      
+      if (pageData.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="6" class="loading">Tidak ada data yang ditemukan</td></tr>';
+        return;
+      }
+      
+      tbody.innerHTML = pageData.map(item => `
+        <tr>
+          <td>${item.Kota || '-'}</td>
+          <td>${item.Provinsi || '-'}</td>
+          <td>${item.Jenis || '-'}</td>
+          <td class="price-cell">${item.Tarif || '-'}</td>
+          <td>${item.Estimasi || '-'}</td>
+          <td>${item.Keterangan || '-'}</td>
+        </tr>
+      `).join('');
+    }
+    
+    // [Event listeners dan inisialisasi bisa disalin dari file tarif.html]
+    
+    // Inisialisasi saat load
+    document.addEventListener('DOMContentLoaded', () => {
+      loadTarifData();
+      rowsPerPage = parseInt(entriesSelect.value);
+    });
+  </script>
+</body>
+</html>
