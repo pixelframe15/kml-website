@@ -171,8 +171,12 @@
           </li>
           <li><a href="index.html#gallery"><i class="fas fa-image"></i> Gallery</a></li>
           <li><a href="index.html#kontak"><i class="fas fa-envelope"></i> Kontak</a></li>
-          <li class="new-menu-item"><a href="tarif.html" class="nav-link active">
-            <i class="fas fa-calculator"></i> Cek Tarif<span class="new-badge">Baru</span></a></li>
+          <li class="dropdown"><a href="#"><i class="fas fa-calculator"></i> Cek Tarif <span class="new-badge">Baru</span> <i class="fas fa-caret-down"></i></a>
+           <ul class="dropdown-menu">
+           <li><a href="tarif.html">Tarif Kirim Mobil</a></li>
+           <li><a href="tarif-kirim-barang.html">Tarif Kirim Barang</a></li>
+        </ul>
+        </li>
           <li><a href="index.html#blog"><i class="fas fa-blog"></i> Blog</a></li>
           <li><a href="#login" class="login-link"><i class="fas fa-sign-in-alt"></i> Login</a></li>
         </ul>
@@ -268,6 +272,7 @@ let sortColumn = 'Kota', sortDirection = 'asc';
 const tbody = document.getElementById('tarif-data');
 const entriesSelect = document.getElementById('entries-select');
 const searchInput = document.getElementById('search-input');
+const searchBtn = document.getElementById('search-btn');
 const provinsiFilter = document.getElementById('provinsi-filter');
 const estimasiFilter = document.getElementById('estimasi-filter');
 const errorMessage = document.getElementById('error-message');
@@ -277,6 +282,12 @@ const prevPageBtn = document.getElementById('prev-page');
 const nextPageBtn = document.getElementById('next-page');
 const lastPageBtn = document.getElementById('last-page');
 const pageNumbers = document.getElementById('page-numbers');
+const sortIcons = document.querySelectorAll('.sort-icon');
+
+function formatRupiah(value) {
+  const number = parseInt(value.toString().replace(/[^\d]/g, '')) || 0;
+  return 'Rp ' + number.toLocaleString('id-ID');
+}
 
 function getCachedData() {
   const cached = localStorage.getItem(CACHE_KEY);
@@ -319,12 +330,14 @@ function applyFilters() {
     filteredData = filteredData.filter(item => item.Provinsi === provinsi);
   }
   const estimasi = estimasiFilter.value;
-  if (estimasi) {
-    filteredData.sort((a, b) => {
-      const aDays = parseInt(a.Estimasi) || 0, bDays = parseInt(b.Estimasi) || 0;
-      return estimasi === 'asc' ? aDays - bDays : bDays - aDays;
-    });
-  }
+if (estimasi) {
+  const extractFirstNumber = (text) => parseInt((text || '').match(/\d+/)?.[0] || '0');
+  filteredData.sort((a, b) => {
+    const daysA = extractFirstNumber(a.Estimasi);
+    const daysB = extractFirstNumber(b.Estimasi);
+    return estimasi === 'asc' ? daysA - daysB : daysB - daysA;
+  });
+}
   filteredData.sort((a, b) => {
     const valA = a[sortColumn] || '', valB = b[sortColumn] || '';
     if (sortColumn === 'Tarif') {
@@ -351,64 +364,19 @@ function renderTable() {
     <tr>
       <td>${item.Kota || '-'}</td>
       <td>${item.Provinsi || '-'}</td>
-      <td class="price-cell">${item.Tarif || '-'}</td>
+      <td class="price-cell" style="text-align:right">${formatRupiah(item.Tarif || '')}</td>
       <td>${item.Estimasi || '-'}</td>
       <td>${item.Keterangan || '-'}</td>
     </tr>
   `).join('');
 }
 
-async function loadTarifData() {
-  tbody.innerHTML = '<tr><td colspan="5" class="loading">Memuat data tarif...</td></tr>';
-  errorMessage.style.display = 'none';
-
-  try {
-    const cachedData = getCachedData();
-    if (cachedData) {
-      allTarifData = cachedData;
-      initTable();
-      populateProvinsiFilter();
-    }
-
-    const response = await fetch(API_URL);
-    if (!response.ok) throw new Error('Gagal memuat data dari server');
-    const data = await response.json();
-    if (!Array.isArray(data) || data.length === 0) throw new Error('Data tidak tersedia');
-
-    const validatedData = data.map(item => ({
-      Kota: item.Kota || item.kota || '',
-      Provinsi: item.Provinsi || item.provinsi || '',
-      Tarif: item.Tarif || item.tarif || '',
-      Estimasi: item.Estimasi || item.estimasi || '',
-      Keterangan: item.Keterangan || item.keterangan || ''
-    }));
-
-    cacheData(validatedData);
-    allTarifData = validatedData;
-    initTable();
-    populateProvinsiFilter();
-  } catch (error) {
-    console.error('Error:', error);
-    showError(error.message);
-    if (allTarifData.length === 0 && getCachedData()) {
-      allTarifData = getCachedData();
-      initTable();
-      populateProvinsiFilter();
-      showError('Menggunakan data cache karena: ' + error.message);
-    } else if (allTarifData.length === 0) {
-      tbody.innerHTML = '<tr><td colspan="5" class="loading">Gagal memuat data. Silakan coba lagi nanti.</td></tr>';
-    }
-  }
-}
-
 function updatePagination() {
   const totalPages = Math.ceil(filteredData.length / rowsPerPage);
   const pageNumbersHTML = [];
-
   for (let i = 1; i <= totalPages; i++) {
     pageNumbersHTML.push(`<a href="#" class="${i === currentPage ? 'active' : ''}" data-page="${i}">${i}</a>`);
   }
-
   pageNumbers.innerHTML = pageNumbersHTML.join('');
   firstPageBtn.classList.toggle('disabled', currentPage === 1);
   prevPageBtn.classList.toggle('disabled', currentPage === 1);
@@ -420,15 +388,122 @@ function updatePagination() {
 }
 
 function initTable() {
-  filteredData = [...allTarifData];
   applyFilters();
   updatePagination();
   renderTable();
 }
 
+function registerEventListeners() {
+  entriesSelect.addEventListener('change', () => {
+    rowsPerPage = parseInt(entriesSelect.value);
+    currentPage = 1;
+    renderTable();
+    updatePagination();
+  });
+
+  provinsiFilter.addEventListener('change', () => {
+    applyFilters();
+    renderTable();
+    updatePagination();
+  });
+
+  estimasiFilter.addEventListener('change', () => {
+    applyFilters();
+    renderTable();
+    updatePagination();
+  });
+
+  searchBtn.addEventListener('click', () => {
+    applyFilters();
+    renderTable();
+    updatePagination();
+  });
+
+  searchInput.addEventListener('keyup', (e) => {
+    if (e.key === 'Enter') {
+      applyFilters();
+      renderTable();
+      updatePagination();
+    }
+  });
+
+  pageNumbers.addEventListener('click', (e) => {
+    if (e.target.tagName === 'A' && !e.target.classList.contains('active')) {
+      e.preventDefault();
+      currentPage = parseInt(e.target.dataset.page);
+      renderTable();
+      updatePagination();
+    }
+  });
+
+  firstPageBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (currentPage !== 1) {
+      currentPage = 1;
+      renderTable();
+      updatePagination();
+    }
+  });
+
+  prevPageBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (currentPage > 1) {
+      currentPage--;
+      renderTable();
+      updatePagination();
+    }
+  });
+
+  nextPageBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    const totalPages = Math.ceil(filteredData.length / rowsPerPage);
+    if (currentPage < totalPages) {
+      currentPage++;
+      renderTable();
+      updatePagination();
+    }
+  });
+
+  lastPageBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    const totalPages = Math.ceil(filteredData.length / rowsPerPage);
+    if (currentPage !== totalPages) {
+      currentPage = totalPages;
+      renderTable();
+      updatePagination();
+    }
+  });
+}
+
+async function loadTarifData() {
+  tbody.innerHTML = '<tr><td colspan="5" class="loading">Memuat data tarif...</td></tr>';
+  errorMessage.style.display = 'none';
+
+  try {
+    const response = await fetch(API_URL);
+    if (!response.ok) throw new Error('Gagal memuat data dari server');
+    const data = await response.json();
+    const validatedData = data.map(item => ({
+      Kota: item.Kota || item.kota || item.Tujuan || item.tujuan || '',
+      Provinsi: item.Provinsi || item.provinsi || '',
+      Tarif: item.Tarif || item.tarif || '',
+      Estimasi: item.Estimasi || item.estimasi || '',
+      Keterangan: item.Keterangan || item.keterangan || ''
+    }));
+    cacheData(validatedData);
+    allTarifData = validatedData;
+    populateProvinsiFilter();
+    initTable();
+  } catch (error) {
+    console.error('Error:', error);
+    showError(error.message);
+  }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   rowsPerPage = parseInt(entriesSelect.value);
   loadTarifData();
+  registerEventListeners();
 });
 </script>
 </body>
