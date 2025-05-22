@@ -41,6 +41,17 @@
       gap: 0.5rem;
     }
     
+    .filter-group {
+      display: flex;
+      gap: 0.5rem;
+    }
+    
+    .filter-select {
+      padding: 0.5rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+    
     .search-box {
       display: flex;
       align-items: center;
@@ -88,6 +99,10 @@
       background-color: #f5f5f5;
     }
     
+    .sort-icon {
+      margin-left: 5px;
+    }
+    
     .pagination {
       display: flex;
       justify-content: center;
@@ -96,23 +111,29 @@
       gap: 0.5rem;
     }
     
-    .page-nav, .page-numbers a {
+    .page-nav, .page-btn {
       padding: 0.5rem 1rem;
       border: 1px solid #ddd;
       border-radius: 4px;
       text-decoration: none;
       color: #333;
+      cursor: pointer;
     }
     
-    .page-nav.disabled {
+    .page-nav.disabled, .page-btn.disabled {
       opacity: 0.5;
       pointer-events: none;
     }
     
-    .page-numbers a.active {
+    .page-btn.active {
       background-color: #2c3e50;
       color: white;
       border-color: #2c3e50;
+    }
+    
+    .ellipsis {
+      padding: 0.5rem;
+      color: #666;
     }
     
     .showing-entries {
@@ -175,7 +196,7 @@
                 <ul class="dropdown-submenu">
                   <li><a href="../layanan/kargo-darat.html">Kargo Jalur Darat</a></li>
                   <li><a href="../layanan/kargo-udara.html">Kargo Jalur Udara</a></li>
-                  <li><a href="../layanan/kargo-laut.html">Kargo Jalur Laut</a></li>
+quelle: <li><a href="../layanan/kargo-laut.html">Kargo Jalur Laut</a></li>
                 </ul>
               </li>
               <li><a href="../layanan/packing.html">Jasa Packing Barang</a></li>
@@ -191,12 +212,13 @@
           </li>
           <li><a href="index.html#gallery"><i class="fas fa-image"></i> Gallery</a></li>
           <li><a href="index.html#kontak"><i class="fas fa-envelope"></i> Kontak</a></li>
-          <li class="dropdown"><a href="#"><i class="fas fa-calculator"></i> Cek Tarif <span class="new-badge">Baru</span> <i class="fas fa-caret-down"></i></a>
-           <ul class="dropdown-menu">
-           <li><a href="tarif.html">Tarif Kirim Mobil</a></li>
-           <li><a href="tarif-kirim-barang.html">Tarif Kirim Barang</a></li>
-        </ul>
-        </li>
+          <li class="dropdown">
+            <a href="#"><i class="fas fa-calculator"></i> Cek Tarif <span class="new-badge">Baru</span> <i class="fas fa-caret-down"></i></a>
+            <ul class="dropdown-menu">
+              <li><a href="tarif.html">Tarif Kirim Mobil</a></li>
+              <li><a href="tarif-kirim-barang.html">Tarif Kirim Barang</a></li>
+            </ul>
+          </li>
           <li><a href="index.html#blog"><i class="fas fa-blog"></i> Blog</a></li>
           <li><a href="#login" class="login-link"><i class="fas fa-sign-in-alt"></i> Login</a></li>
         </ul>
@@ -207,7 +229,7 @@
 
   <section class="tarif-section">
     <div class="container">
-      <h2><i class="fas fa-money-bill-wave"></i> Daftar Tarif Pengiriman</h2>
+      <h2><i class="fas fa-money-bill-wave"></i> Daftar Tarif Kirim Mobil</h2>
       
       <!-- Filter & Entri -->
       <div class="tarif-controls">
@@ -272,15 +294,23 @@
       
       <!-- Pagination -->
       <div class="pagination">
-        <a href="#" id="first-page" class="page-nav disabled"><i class="fas fa-angle-double-left"></i></a>
-        <a href="#" id="prev-page" class="page-nav disabled"><i class="fas fa-angle-left"></i></a>
+        <button id="first-page" class="page-nav disabled" title="Halaman Pertama">
+          <i class="fas fa-angle-double-left"></i>
+        </button>
+        <button id="prev-page" class="page-nav disabled" title="Halaman Sebelumnya">
+          <i class="fas fa-angle-left"></i>
+        </button>
         
         <div class="page-numbers" id="page-numbers">
-          <a href="#" class="active">1</a>
+          <button class="page-btn active">1</button>
         </div>
         
-        <a href="#" id="next-page" class="page-nav"><i class="fas fa-angle-right"></i></a>
-        <a href="#" id="last-page" class="page-nav"><i class="fas fa-angle-double-right"></i></a>
+        <button id="next-page" class="page-nav" title="Halaman Selanjutnya">
+          <i class="fas fa-angle-right"></i>
+        </button>
+        <button id="last-page" class="page-nav" title="Halaman Terakhir">
+          <i class="fas fa-angle-double-right"></i>
+        </button>
       </div>
       
       <div class="showing-entries" id="showing-entries">
@@ -290,12 +320,12 @@
   </section>
 
   <footer>
-  <p>© 2025 PT. Karya Mandiri Logistics. All Rights Reserved.</p>
+    <p>© 2025 PT. Karya Mandiri Logistics. All Rights Reserved.</p>
   </footer>
 
   <script>
     // Konfigurasi
-    const API_URL = 'https://script.google.com/macros/s/AKfycbzZuhKRS0ZffeiFU5CgItsXsMRsOpDoXNUPWqhTa2JQjV-GNN0XxEsd1Fxa7d4op6hp/exec'; // Ganti dengan URL Apps Script Anda
+    const API_URL = 'https://script.google.com/macros/s/AKfycbzZuhKRS0ZffeiFU5CgItsXsMRsOpDoXNUPWqhTa2JQjV-GNN0XxEsd1Fxa7d4op6hp/exec';
     const CACHE_KEY = 'kml_tarif_cache';
     const CACHE_EXPIRY = 30 * 60 * 1000; // 30 menit cache
     
@@ -323,7 +353,7 @@
     const pageNumbers = document.getElementById('page-numbers');
     const sortIcons = document.querySelectorAll('.sort-icon');
     
-    // Fungsi utama untuk memuat data
+    // Fungsi untuk memuat data
     async function loadTarifData() {
       tbody.innerHTML = '<tr><td colspan="5" class="loading">Memuat data tarif...</td></tr>';
       errorMessage.style.display = 'none';
@@ -392,8 +422,8 @@
     function initTable() {
       filteredData = [...allTarifData];
       applyFilters();
-      updatePagination();
       renderTable();
+      updatePagination();
     }
     
     // Fungsi untuk render tabel
@@ -485,84 +515,44 @@
     function updatePagination() {
       const totalPages = Math.ceil(filteredData.length / rowsPerPage);
       
-      // Update tombol navigasi
-      firstPageBtn.classList.toggle('disabled', currentPage === 1);
-      prevPageBtn.classList.toggle('disabled', currentPage === 1);
-      nextPageBtn.classList.toggle('disabled', currentPage >= totalPages);
-      lastPageBtn.classList.toggle('disabled', currentPage >= totalPages);
-      
-      // Update info entri
-      const start = (currentPage - 1) * rowsPerPage + 1;
-      const end = Math.min(currentPage * rowsPerPage, filteredData.length);
-      showingEntries.textContent = `Menampilkan ${start} sampai ${end} dari ${filteredData.length} entri`;
-      
-      // Update nomor halaman
+      // Clear existing buttons
       pageNumbers.innerHTML = '';
       
-      const maxVisiblePages = 5;
-      let startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
-      let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
+      // Always show current page
+      const currentButton = document.createElement('button');
+      currentButton.className = 'page-btn active';
+      currentButton.textContent = currentPage;
+      pageNumbers.appendChild(currentButton);
       
-      if (endPage - startPage + 1 < maxVisiblePages) {
-        startPage = Math.max(1, endPage - maxVisiblePages + 1);
-      }
-      
-      // Tombol pertama
-      if (startPage > 1) {
-        const firstPage = document.createElement('a');
-        firstPage.href = '#';
-        firstPage.textContent = '1';
-        firstPage.addEventListener('click', (e) => {
-          e.preventDefault();
-          currentPage = 1;
-          renderTable();
-          updatePagination();
-        });
-        pageNumbers.appendChild(firstPage);
+      // Add ellipsis and last page if there are more pages
+      if (totalPages > 1 && currentPage < totalPages) {
+        const ellipsis = document.createElement('span');
+        ellipsis.className = 'ellipsis';
+        ellipsis.textContent = '..';
+        pageNumbers.appendChild(ellipsis);
         
-        if (startPage > 2) {
-          const ellipsis = document.createElement('span');
-          ellipsis.textContent = '...';
-          pageNumbers.appendChild(ellipsis);
-        }
-      }
-      
-      // Tombol halaman
-      for (let i = startPage; i <= endPage; i++) {
-        const pageLink = document.createElement('a');
-        pageLink.href = '#';
-        pageLink.textContent = i;
-        if (i === currentPage) {
-          pageLink.classList.add('active');
-        }
-        pageLink.addEventListener('click', (e) => {
-          e.preventDefault();
-          currentPage = i;
-          renderTable();
-          updatePagination();
-        });
-        pageNumbers.appendChild(pageLink);
-      }
-      
-      // Tombol terakhir
-      if (endPage < totalPages) {
-        if (endPage < totalPages - 1) {
-          const ellipsis = document.createElement('span');
-          ellipsis.textContent = '...';
-          pageNumbers.appendChild(ellipsis);
-        }
-        
-        const lastPage = document.createElement('a');
-        lastPage.href = '#';
-        lastPage.textContent = totalPages;
-        lastPage.addEventListener('click', (e) => {
+        const lastButton = document.createElement('button');
+        lastButton.className = 'page-btn';
+        lastButton.textContent = totalPages;
+        lastButton.addEventListener('click', (e) => {
           e.preventDefault();
           currentPage = totalPages;
           renderTable();
           updatePagination();
         });
-        pageNumbers.appendChild(lastPage);
+        pageNumbers.appendChild(lastButton);
       }
+      
+      // Update navigation buttons
+      firstPageBtn.classList.toggle('disabled', currentPage === 1);
+      prevPageBtn.classList.toggle('disabled', currentPage === 1);
+      nextPageBtn.classList.toggle('disabled', currentPage >= totalPages || totalPages === 0);
+      lastPageBtn.classList.toggle('disabled', currentPage >= totalPages || totalPages === 0);
+      
+      // Update info entri
+      const start = filteredData.length === 0 ? 0 : (currentPage - 1) * rowsPerPage + 1;
+      const end = Math.min(currentPage * rowsPerPage, filteredData.length);
+      showingEntries.textContent = `Menampilkan ${start} sampai ${end} dari ${filteredData.length} entri`;
     }
     
     // Event Listeners
@@ -677,8 +667,7 @@
     
     // Toggle menu mobile
     function toggleMenu() {
-      const navMenu = document.querySelector('.nav-menu');
-      navMenu.classList.toggle('active');
+      document.querySelector(".nav-links").classList.toggle("show");
     }
   </script>
 </body>
