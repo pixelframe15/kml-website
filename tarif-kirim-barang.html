@@ -155,6 +155,11 @@
       font-size: 0.9rem;
     }
     
+    .ellipsis {
+      padding: 0.5rem;
+      color: #666;
+    }
+    
     /* Messages */
     .loading {
       text-align: center;
@@ -238,7 +243,7 @@
   <!-- Main Content Section -->
   <section class="tarif-section">
     <div class="container">
-      <h2><i class="fas fa-boxes"></i> Daftar Tarif Kirim Barang</h2>
+      <h2><i class="fas FONT_SIZE_18px"></i> Daftar Tarif Kirim Barang</h2>
       
       <!-- Filter Controls -->
       <div class="tarif-controls">
@@ -433,7 +438,11 @@
         }
         
         if (sortColumn === 'Estimasi') {
-          const extractFirstNumber = (text) => parseInt((text || '').match(/\d+/)?.[0] || '0');
+          const extractFirstNumber = (text) => {
+            if (!text || typeof text !== 'string') return 9999;
+            const match = text.match(/\d+/);
+            return match ? parseInt(match[0]) : 9999;
+          };
           const daysA = extractFirstNumber(valA);
           const daysB = extractFirstNumber(valB);
           return sortDirection === 'asc' ? daysA - daysB : daysB - daysA;
@@ -469,39 +478,31 @@
     
     function updatePagination() {
       const totalPages = Math.ceil(filteredData.length / rowsPerPage);
-      const maxVisiblePages = 5; // Maximum number of page buttons to show
-      const halfMax = Math.floor(maxVisiblePages / 2);
-      
-      let startPage = Math.max(1, currentPage - halfMax);
-      let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
-      
-      // Adjust if we're at the end
-      if (endPage - startPage + 1 < maxVisiblePages) {
-        startPage = Math.max(1, endPage - maxVisiblePages + 1);
-      }
       
       // Clear existing buttons
       pageNumbers.innerHTML = '';
       
-      // Add first page and ellipsis if needed
-      if (startPage > 1) {
-        addPageButton(1);
-        if (startPage > 2) {
-          addEllipsis();
-        }
-      }
+      // Always show current page
+      const currentButton = document.createElement('button');
+      currentButton.className = 'page-btn active';
+      currentButton.textContent = currentPage;
+      pageNumbers.appendChild(currentButton);
       
-      // Add page buttons
-      for (let i = startPage; i <= endPage; i++) {
-        addPageButton(i);
-      }
-      
-      // Add last page and ellipsis if needed
-      if (endPage < totalPages) {
-        if (endPage < totalPages - 1) {
-          addEllipsis();
-        }
-        addPageButton(totalPages);
+      // Add ellipsis and last page if there are more pages
+      if (totalPages > 1 && currentPage < totalPages) {
+        const ellipsis = document.createElement('span');
+        ellipsis.className = 'ellipsis';
+        ellipsis.textContent = '..';
+        pageNumbers.appendChild(ellipsis);
+        
+        const lastButton = document.createElement('button');
+        lastButton.className = 'page-btn';
+        lastButton.textContent = totalPages;
+        lastButton.addEventListener('click', (e) => {
+          e.preventDefault();
+          goToPage(totalPages);
+        });
+        pageNumbers.appendChild(lastButton);
       }
       
       // Update navigation buttons
@@ -514,24 +515,6 @@
       const startEntry = filteredData.length === 0 ? 0 : (currentPage - 1) * rowsPerPage + 1;
       const endEntry = Math.min(currentPage * rowsPerPage, filteredData.length);
       showingEntries.textContent = `Menampilkan ${startEntry}-${endEntry} dari ${filteredData.length} entri`;
-    }
-    
-    function addPageButton(page) {
-      const button = document.createElement('button');
-      button.className = `page-btn ${page === currentPage ? 'active' : ''}`;
-      button.textContent = page;
-      button.addEventListener('click', (e) => {
-        e.preventDefault();
-        goToPage(page);
-      });
-      pageNumbers.appendChild(button);
-    }
-    
-    function addEllipsis() {
-      const span = document.createElement('span');
-      span.className = 'ellipsis';
-      span.textContent = '...';
-      pageNumbers.appendChild(span);
     }
     
     function goToPage(page) {
@@ -596,7 +579,14 @@
       
       // Filter changes
       provinsiFilter.addEventListener('change', initTable);
-      estimasiFilter.addEventListener('change', initTable);
+      estimasiFilter.addEventListener('change', () => {
+        const value = estimasiFilter.value;
+        if (value) {
+          sortColumn = 'Estimasi';
+          sortDirection = value;
+          initTable();
+        }
+      });
       
       // Search
       searchBtn.addEventListener('click', initTable);
