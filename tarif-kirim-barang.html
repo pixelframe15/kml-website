@@ -641,10 +641,9 @@
     }
     
     // Initialize
-    document.addEventListener('DOMContentLoaded', () => {
-      setupEventListeners();
-      loadTarifData();
-    });
+   function toggleMenu() {
+      document.querySelector(".nav-links").classList.toggle("show");
+    }
   </script>
 </body>
 </html>
