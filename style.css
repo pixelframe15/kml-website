@@ -130,7 +130,7 @@ footer{text-align:center;padding:1rem;background:#222;color:#fff;font-size:.9rem
 }
 
 .nav-links li a{color:#16486c;text-decoration:none;font-size:15px;padding:.5rem 1rem;border-radius:50px;transition:.3s;font-weight:500}
-.nav-links li :hover{color:#fc9031!important;border-bottom:2px solid #fc9031}
+.nav-links li :hover{color:#fc9031!important;}
 .nav-links li a:hover{color:#fc9031;background:transparent}
 .nav-links li .login-link:hover{background:#fc9031;color:#fff!important}
 .menu-toggle{display:none;font-size:1.5rem;cursor:pointer;padding-left:1rem;color:#16486c}
