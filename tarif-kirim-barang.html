@@ -4,9 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Daftar Tarif Kirim Barang | PT Karya Mandiri Logistic</title>
+  
+  <!-- Meta SEO -->
   <meta name="description" content="Daftar tarif kirim barang via darat, laut, udara ke seluruh Indonesia. Cek harga pengiriman kargo per kg.">
   <meta name="keywords" content="tarif kirim barang, biaya kargo, harga pengiriman barang, tarif kargo darat laut udara">
   <meta name="author" content="PT. Karya Mandiri Logistics">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Daftar Tarif Pengiriman Barang | PT Karya Mandiri Logistics">
+  <meta property="og:description" content="Lihat tarif terbaru pengiriman barang ke seluruh Indonesia.">
+  <meta property="og:image" content="assets/logo-kml.png">
+  <meta property="og:url" content="https://kml-logistics.vercel.app/tarif.html">
+  
   <link rel="icon" href="assets/favicon.ico" />
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -14,6 +23,7 @@
     /* Main Styles */
     .tarif-section {
       padding: 2rem 0;
+      color: #2c3e50;
       background-color: #f9f9f9;
     }
     
@@ -177,7 +187,34 @@
       margin: 1rem 0;
       display: none;
     }
+
+    /* New Styles for Intro and Notes */
+    .table-intro {
+      margin-bottom: 1rem;
+      color: #2c3e50;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
     
+    .table-notes {
+      margin-bottom: 1rem;
+      padding: 1rem;
+      background-color: #e8f0fe;
+      border-radius: 4px;
+      color: #2c3e50;
+      font-size: 0.9rem;
+    }
+    
+    .table-notes ul {
+      margin: 0;
+      padding-left: 1.5rem;
+    }
+    
+    .table-notes li {
+      margin-bottom: 0.5rem;
+    }
+
+
     /* Responsive */
     @media (max-width: 768px) {
       .tarif-controls {
@@ -220,7 +257,30 @@
           <li class="dropdown">
             <a href="index.html#layanan"><i class="fas fa-box"></i> Layanan <i class="fas fa-caret-down"></i></a>
             <ul class="dropdown-menu">
-              <!-- Dropdown menu items -->
+              <li class="has-submenu">Kirim Mobil
+                <ul class="dropdown-submenu">
+                  <li><a href="../layanan/towing.html">Kirim Mobil Via Towing</a></li>
+                  <li><a href="../layanan/carrier.html">Kirim Mobil Via Car Carrier</a></li>
+                  <li><a href="../layanan/selfdrive.html">Kirim Mobil Via Self Drive</a></li>
+                  <li><a href="../layanan/roro.html">Kirim Mobil Via Kapal Roro</a></li>
+                </ul>
+              </li>
+              <li class="has-submenu">Kargo
+                <ul class="dropdown-submenu">
+                  <li><a href="../layanan/kargo-darat.html">Kargo Jalur Darat</a></li>
+                  <li><a href="../layanan/kargo-udara.html">Kargo Jalur Udara</a></li>
+                  <li><a href="../layanan/kargo-laut.html">Kargo Jalur Laut</a></li>
+                </ul>
+              </li>
+              <li><a href="../layanan/packing.html">Jasa Packing Barang</a></li>
+              <li><a href="../layanan/container.html">Jasa Sewa Container</a></li>
+              <li><a href="../layanan/cdd.html">Jasa Sewa CDD dan CDE</a></li>
+              <li><a href="../layanan/alatberat.html">Jasa Kirim Alat Berat</a></li>
+              <li><a href="../layanan/pindahan.html">Trucking Pindahan</a></li>
+              <li><a href="../layanan/dtd.html">Door To Door Service</a></li>
+              <li><a href="../layanan/undername.html">Undername Service</a></li>
+              <li><a href="../layanan/customs.html">Customs Clearance</a></li>
+              <li><a href="../layanan/freight.html">Sea & Air Freight</a></li>
             </ul>
           </li>
           <li><a href="index.html#gallery"><i class="fas fa-image"></i> Gallery</a></li>
@@ -277,6 +337,11 @@
       
       <!-- Error Message -->
       <div id="error-message" class="error-message"></div>
+
+       <!-- Table Intro -->
+      <div class="table-intro">
+        Cek tarif pengiriman barang ke seluruh Indonesia melalui jalur darat, laut, dan udara. Harga di bawah ini adalah tarif per kilogram dengan estimasi waktu pengiriman.
+      </div>
       
       <!-- Tarif Table -->
       <div class="table-responsive">
@@ -294,6 +359,14 @@
             <tr><td colspan="5" class="loading">Memuat data tarif...</td></tr>
           </tbody>
         </table>
+      </div>
+
+      <!-- Table Notes -->
+      <div class="table-notes">
+        <ul>
+          <li>Charge minimum 50 kg port to door.</li>
+          <li>Barang di atas 1 ton harga bisa nego, hubungi marketing.</li>
+        </ul>
       </div>
       
       <!-- Pagination -->
