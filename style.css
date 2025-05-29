@@ -139,7 +139,7 @@ footer{text-align:center;padding:1rem;background:#222;color:#fff;font-size:.9rem
 .hero{background:#fff}
 .hero-container{display:flex;justify-content:space-between;align-items:center;max-width:1200px;margin:auto;gap:2rem;flex-wrap:wrap}
 .hero-text{flex:1;animation:fadeInUp 1s ease}
-.hero-tagline{font-size:.9rem;color:#fc9031;border:2px solid #fc9031;padding:6px 12px;border-radius:20px;font-weight:600;display:inline-block;margin-bottom:1rem}
+.hero-tagline{font-size:2rem;color:#fc9031;border:2px solid #fc9031;padding:6px 12px;border-radius:20px;font-weight:600;display:inline-block;margin-bottom:1rem}
 .hero-text h1{font-size:2rem;margin-bottom:1rem;line-height:1.4}
 .hero-text h1 .biru{color:#16486c}
 .hero-text h1 .orange{color:#fc9031}
