@@ -5,7 +5,7 @@
     "date": "2025-05-29",
     "excerpt": "Pelajari cara memastikan alat berat seperti excavator dan bulldozer sampai dengan aman menggunakan trailer lowbed.",
     "image": "assets/alatberat-bg.png",
-    "link": "blog/tips-mengirim-alat-berat.html"
+    "link": "../blog/tips-mengirim-alat-berat.html"
   },
   {
     "id": 2,
@@ -13,7 +13,7 @@
     "date": "2025-05-28",
     "excerpt": "Pengiriman mobil antar pulau dengan kapal Roro menawarkan solusi ekonomis dan efisien. Simak keunggulannya!",
     "image": "assets/roro-bg.png",
-    "link": "blog/pengiriman-kapal-roro.html"
+    "link": "../blog/pengiriman-kapal-roro.html"
   },
   {
     "id": 3,
@@ -21,6 +21,6 @@
     "date": "2025-05-27",
     "excerpt": "Panduan lengkap untuk packing barang dengan aman menggunakan material berkualitas seperti bubble wrap dan kardus tebal.",
     "image": "assets/packing-bg.png",
-    "link": "blog/cara-packing-barang.html"
+    "link": "../blog/cara-packing-barang.html"
   }
 ]
