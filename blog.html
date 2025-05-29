@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog - PT. Karya Mandiri Logistics</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+  <header class="main-header">
+    <div class="container">
+      <div class="logo-left">
+        <img src="assets/logo-kml.png" alt="Logo" class="desktop-logo">
+        <img src="assets/logo-kml.png" alt="Logo" class="mobile-logo">
+      </div>
+      <nav class="nav-menu">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#tentang">Tentang Kami</a></li>
+          <li class="dropdown">
+            <a href="index.html#layanan">Layanan <i class="fas fa-chevron-down"></i></a>
+            <ul class="dropdown-menu">
+              <li class="has-submenu">
+                <a>Kirim Mobil</a>
+                <ul class="dropdown-submenu">
+                  <li><a href="#">Kirim Mobil Via Towing</a></li>
+                  <li><a href="#">Kirim Mobil Via Car Carrier</a></li>
+                  <li><a href="#">Kirim Mobil Via Self Drive</a></li>
+                  <li><a href="#">Kirim Mobil Via Kapal Roro</a></li>
+                </ul>
+              </li>
+              <li class="has-submenu">
+                <a>Kargo</a>
+                <ul class="dropdown-submenu">
+                  <li><a href="#">Kargo Jalur Darat</a></li>
+                  <li><a href="#">Kargo Jalur Udara</a></li>
+                  <li><a href="#">Kargo Jalur Laut</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Jasa Packing Barang</a></li>
+              <li><a href="#">Jasa Sewa Container</a></li>
+              <li><a href="#">Jasa Sewa CDD dan CDE</a></li>
+              <li><a href="alatberat.html">Jasa Kirim Alat Berat</a></li>
+              <li><a href="#">Trucking Pindahan</a></li>
+              <li><a href="#">Door To Door Service</a></li>
+              <li><a href="#">Undername Service</a></li>
+              <li><a href="#">Customs Clearance</a></li>
+              <li><a href="#">Sea & Air Freight</a></li>
+            </ul>
+          </li>
+          <li><a href="index.html#gallery">Gallery</a></li>
+          <li><a href="index.html#kontak">Kontak</a></li>
+          <li class="dropdown new-menu-item">
+            <a href="#" class="nav-link">Cek Tarif Baru <span class="new-badge">New</span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Tarif Kirim Mobil</a></li>
+              <li><a href="#">Tarif Kirim Barang</a></li>
+            </ul>
+          </li>
+          <li><a href="blog.html" class="active">Blog</a></li>
+          <li><a href="#" class="login-link">Login</a></li>
+        </ul>
+        <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+      </nav>
+    </div>
+  </header>
+
+  <section class="blog-section" id="blog">
+    <div class="layanan-wrapper">
+      <h2>Blog Kami</h2>
+      <div id="blog-app">
+        <div class="layanan-group">
+          <div v-for="post in paginatedPosts" :key="post.id" class="layanan-box" data-animate>
+            <div class="layanan-img" :style="{ backgroundImage: 'url(' + post.image + ')' }">
+              <div class="img-overlay"></div>
+            </div>
+            <div class="layanan-content">
+              <h4>{{ post.title }}</h4>
+              <p class="blog-date">{{ formatDate(post.date) }}</p>
+              <p>{{ post.excerpt }}</p>
+              <a :href="post.link" class="btn-selengkapnya">Selengkapnya <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="pagination">
+          <a href="#" class="page-nav" :class="{ disabled: currentPage === 1 }" @click.prevent="changePage(currentPage - 1)">Sebelumnya</a>
+          <div class="page-numbers">
+            <a v-for="page in totalPages" :key="page" href="#" :class="{ active: page === currentPage }" @click.prevent="changePage(page)">{{ page }}</a>
+          </div>
+          <a href="#" class="page-nav" :class="{ disabled: currentPage === totalPages }" @click.prevent="changePage(currentPage + 1)">Selanjutnya</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 PT. Karya Mandiri Logistics. All Rights Reserved.</p>
+  </footer>
+
+  <!-- WHATSAPP -->
+<div class="wa-wrapper">
+  <div class="wa-toggle" onclick="toggleWaList()">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    <span>Layanan Informasi</span>
+  </div>
+  <div class="wa-list" id="waList">
+    <a href="https://wa.me/6285372222146" class="wa-btn" target="_blank"><span>Ajat</span></a>
+    <a href="https://wa.me/6282298944698" class="wa-btn" target="_blank"><span>Once</span></a>
+    <a href="https://wa.me/6281387237045" class="wa-btn" target="_blank"><span>Febri</span></a>
+    <a href="https://wa.me/6285719123123" class="wa-btn" target="_blank"><span>Didik</span></a>
+  </div>
+</div>
+
+
+  <script>
+    const { createApp } = Vue;
+    createApp({
+      data() {
+        return {
+          posts: [],
+          currentPage: 1,
+          postsPerPage: 6
+        };
+      },
+      computed: {
+        paginatedPosts() {
+          const start = (this.currentPage - 1) * this.postsPerPage;
+          const end = start + this.postsPerPage;
+          return this.posts.slice(start, end);
+        },
+        totalPages() {
+          return Math.ceil(this.posts.length / this.postsPerPage);
+        }
+      },
+      methods: {
+        async fetchPosts() {
+          try {
+            const response = await fetch('posts.json');
+            this.posts = await response.json();
+          } catch (error) {
+            console.error('Gagal memuat postingan:', error);
+          }
+        },
+        formatDate(date) {
+          const options = { year: 'numeric', month: 'long', day: 'numeric' };
+          return new Date(date).toLocaleDateString('id-ID', options);
+        },
+        changePage(page) {
+          if (page >= 1 && page <= this.totalPages) {
+            this.currentPage = page;
+            window.scrollTo({ top: document.querySelector('#blog').offsetTop - 100, behavior: 'smooth' });
+          }
+        }
+      },
+      mounted() {
+        this.fetchPosts();
+      }
+    }).mount('#blog-app');
+
+    // Toggle menu mobile
+    document.querySelector('.menu-toggle').addEventListener('click', () => {
+      document.querySelector('.nav-links').classList.toggle('show');
+    });
+
+    // Toggle daftar WhatsApp
+    document.querySelector('.wa-toggle').addEventListener('click', () => {
+      document.querySelector('.wa-list').classList.toggle('show');
+    });
+
+    // Animasi saat scroll
+    const animateElements = document.querySelectorAll('[data-animate]');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.2 });
+    animateElements.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

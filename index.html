@@ -3,24 +3,52 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- ✅ TITLE (penting untuk SEO) -->
   <title>PT Karya Mandiri Logistic | Ekspedisi, Cargo & Logistik Indonesia</title>
 
   <!-- Meta SEO -->
   <meta name="description" content="PT. Karya Mandiri Logistic adalah penyedia layanan ekspedisi dan logistik terpercaya ke seluruh Indonesia.">
-  <meta name="keywords" content="ekspedisi, cargo, logistik, pengiriman mobil, kirim barang, jasa angkut">
+  <meta name="keywords" content="jasa ekspedisi, jasa kargo, kirimmobil, kirimbarang, pelni , kargo indonesia timur, ekspedisi, cargo, logistik, pengiriman mobil, kirim barang, jasa angkut">
   <meta name="author" content="PT. Karya Mandiri Logistics">
 
-  <!-- Open Graph -->
+  <!-- ✅ CANONICAL URL -->
+  <link rel="canonical" href="https://karyamandirilog.com/" />
+  
+  <!-- ✅ OPEN GRAPH (untuk share ke Facebook, WhatsApp) -->
   <meta property="og:title" content="PT Karya Mandiri Logistics">
-  <meta property="og:description" content="Spesialis pengiriman barang & kendaraan ke seluruh Indonesia dari Surabaya.">
-  <meta property="og:image" content="assets/logo-kml.png">
-  <meta property="og:url" content="https://kml-logistics.vercel.app/">
+  <meta property="og:description" content="Spesialis pengiriman barang & kendaraan ke seluruh Indonesia dari Jabodetabek dan Surabaya.">
+  <meta property="og:image" content="https://karyamandirilog.com/assets/logo-kml.png">
+  <meta property="og:url" content="https://karyamandirilog.com/">
+  <meta property="og:type" content="website">
 
-  <!-- Styles & Icons -->
+  <!-- ✅ FAVICON & STYLING -->
   <link rel="icon" href="assets/favicon.ico" />
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
+  <!-- ✅ STRUCTURED DATA (JSON-LD) -->
+  <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "LogisticsCompany",
+    "name": "PT Karya Mandiri Logistics",
+    "url": "https://karyamandirilog.com",
+    "logo": "https://karyamandirilog.com/assets/logo-kml.png",
+    "description": "Jasa pengiriman barang dan mobil ke seluruh Indonesia. Layanan logistik terpercaya dengan jaringan nasional.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Jl. KH Ahmad Dahlan No. 24, Kukusan, Kota Depok, Jawa Barat",
+      "addressCountry": "ID"
+    },
+    "sameAs": [
+      "https://www.instagram.com/halo.kmlogistic",
+      "https://www.facebook.com/profile.php?id=61576624520016"
+    ]
+  }
+  </script>
+
+  <!-- ✅ Tambahkan Style atau CSS kamu di bawah ini -->  
  <style>
     /* Style khusus halaman layanan */
     .layanan-detail {
@@ -156,6 +184,18 @@
       }
     }
   </style>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CY53P3FR9B"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CY53P3FR9B');
+</script>
+
+
 </head>
 <body>
 
@@ -207,7 +247,7 @@
         <li><a href="tarif-kirim-barang.html">Tarif Kirim Barang</a></li>
         </ul>
         </li>
-        <li><a href="#blog"><i class="fas fa-blog"></i> Blog</a></li>
+        <li><a href="blog.html"><i class="fas fa-blog"></i> Blog</a></li>
         <li><a href="#login" class="login-link"><i class="fas fa-sign-in-alt"></i> Login</a></li>
       </ul>
       <div class="menu-toggle" onclick="toggleMenu()">☰</div>
@@ -259,8 +299,8 @@
 </p>
   </p>
   <div class="tentang-buttons">
-    <a href="#kontak" class="btn konsultasi"><i class="fas fa-comments"></i> Konsultasi Gratis</a>
-    <a href="https://wa.me/6287787651023" class="btn cek-tarif"><i class="fas fa-money-bill-wave"></i> Cek Tarif</a>
+    <a href="https://wa.me/6285372222146" class="btn konsultasi"><i class="fas fa-comments"></i> Konsultasi Gratis</a>
+    <a href="tarif-kirim-barang.html" class="btn cek-tarif"><i class="fas fa-money-bill-wave"></i> Cek Tarif</a>
   </div>
 </div>
   
@@ -608,7 +648,7 @@
     <span>Layanan Informasi</span>
   </div>
   <div class="wa-list" id="waList">
-    <a href="https://wa.me/6287787651023" class="wa-btn" target="_blank"><span>Ajat</span></a>
+    <a href="https://wa.me/6285372222146" class="wa-btn" target="_blank"><span>Ajat</span></a>
     <a href="https://wa.me/6282298944698" class="wa-btn" target="_blank"><span>Once</span></a>
     <a href="https://wa.me/6281387237045" class="wa-btn" target="_blank"><span>Febri</span></a>
     <a href="https://wa.me/6285719123123" class="wa-btn" target="_blank"><span>Didik</span></a>
